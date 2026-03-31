@@ -96,3 +96,15 @@ All coursework is processed through the MAE Tactical Brief system:
 ---
 
 *Deployed via MAE Protocol. You are not behind. You are deployed.* 🔺///
+
+---
+
+## 🔺 OOL Triangle
+
+All coursework processing follows the OOL loop:
+
+1. **OBSERVE** — Gather lecture data, assignment specs, raw material
+2. **ORIENT** — Classify, cross-link to doctrine, identify exam relevance
+3. **LEAD** — Execute: tactical brief, submission, study block
+
+Full scroll: [`research/ool_triangle.maez.md`](research/ool_triangle.maez.md)
