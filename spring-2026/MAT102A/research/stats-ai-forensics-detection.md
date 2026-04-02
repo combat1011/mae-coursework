@@ -1,7 +1,7 @@
 # Statistical Analysis of AI-Generated Text Detection Accuracy in Digital Forensic Investigations
 
-**Caquan "Cue" Lashard Palmer**  
-Department of Computing and Information Sciences, Niagara University  
+**[COMMANDER]**  
+Department of Computing and Information Sciences, [INSTITUTION]  
 MAT102A — Introduction to Statistics  
 Professor [Instructor Name]  
 March 30, 2026
@@ -364,7 +364,7 @@ Drawing on the statistical findings and the broader forensic literature, the fol
 ## 7. Research Proposal — Final Project Submission
 
 **Course:** MAT102A — Introduction to Statistics  
-**Student:** Caquan "Cue" Lashard Palmer  
+**Student:** [COMMANDER]  
 **Submission Date:** April 30, 2026  
 **Point Value:** 20 points
 
@@ -439,7 +439,7 @@ The significance of this project spans three dimensions:
 - RAID dataset: publicly available at [https://github.com/liamdugan/raid](https://github.com/liamdugan/raid)
 - HC3 dataset: publicly available at Huggingface (https://huggingface.co/datasets/Hello-SimpleAI/HC3)
 - Access to GPTZero and ZeroGPT free tiers for any supplementary live testing
-- Niagara University library access to JSTOR and PMC for peer-reviewed sources
+- [INSTITUTION] library access to JSTOR and PMC for peer-reviewed sources
 
 ---
 

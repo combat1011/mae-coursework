@@ -1,7 +1,7 @@
 # Consent, Control, and Constraint: Toward an Ethical Framework for Human-AI Interaction Systems
 
-**Caquan "Cue" Lashard Palmer**
-Niagara University | Digital Forensics
+**[COMMANDER]**
+[INSTITUTION] | Digital Forensics
 ETH201 – Cyberethics | AIC301 – AI Conflict
 Spring 2026
 

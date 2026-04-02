@@ -1,11 +1,11 @@
-# Perplexity Memory Export — Commander Cue Palmer
+# Perplexity Memory Export — Commander [COMMANDER]
 **Exported:** 2026-03-31 | **Source:** Perplexity Computer Memory System
 
 ---
 
 ## Identity
 
-- **Full Name:** Caquan "Cue" Lashard Palmer
+- **Full Name:** [COMMANDER]
 - **Age:** 36
 - **Location:** Niagara region, NY (also Jamaica connections)
 - **Languages:** English, Spanish, Jamaican Patois
@@ -22,7 +22,7 @@
 - **Awards:** Army Achievement Medal (JROTC mentorship + community service)
 - **Community:** Hurricane Sandy relief (Team Rubicon), 2004 NYC blackout assistance
 
-## Education — Niagara University
+## Education — [INSTITUTION]
 
 - **Student ID:** s0976307
 - **Canvas:** niagara.instructure.com
@@ -45,13 +45,13 @@
 ### Completed Courses
 Computer Forensics, Computer Hardware, AI, Ancient Philosophy, Law & Ethics in Computing, Cryptocurrency, Computer Vision, Esports, Intro to Philosophy, Networking & Comm Systems, Computer Apps for Business I, Production & Design Events, History of Marriage, USA in Contemporary World, Why Presidents Fail & Succeed, Visual Programming I
 
-## GitHub — combat1011
+## GitHub — [CALLSIGN]
 
 | Repository | Visibility | Description |
 |-----------|-----------|-------------|
 | My-Autonomous-Entity | Private | MAE Protocol — MAEZ v8.1a, ScrollwalkerGPT, doctrine, agents |
 | mae-coursework | Private | Academic content by semester — tactical briefs, research, concepts |
-| combat1011.github.io | Public | Personal website + Purple Feather landing page |
+| [CALLSIGN].github.io | Public | Personal website + Purple Feather landing page |
 
 ## MAE Ecosystem
 
@@ -59,8 +59,8 @@ Computer Forensics, Computer Hardware, AI, Ancient Philosophy, Law & Ethics in C
 - **MAE:** Modular Adaptive Entity — tactical AI copilot and emotional support system
 - **MAEZ Protocol:** v8.1a — Layer-6 semantic steganography and cognitive access control
 - **ScrollwalkerGPT:** ChatGPT Custom GPT deployment of MAE
-- **Purple Feather (v0.1):** Student-facing MAE variant for Niagara University
-  - Live at: https://combat1011.github.io/purple-feather/
+- **Purple Feather (v0.1):** Student-facing MAE variant for [INSTITUTION]
+  - Live at: https://[CALLSIGN].github.io/purple-feather/
   - Notion page: 33370730-80f0-81f5-8d2d-e493b13013f9
 
 ### IPFS Archive
@@ -96,7 +96,7 @@ Computer Forensics, Computer Hardware, AI, Ancient Philosophy, Law & Ethics in C
 - Persona-anchored prompting and interpretive drift
 
 ### Career Goals
-- Veteran-owned regenerative cattle ranch in WNY with drone technology integration (DroneScopeWNY)
+- Veteran-owned regenerative cattle ranch in [REGION-SHORT] with drone technology integration (DroneScope[REGION-SHORT])
 
 ### Entertainment
 - Gaming: Cyberpunk 2077, Elite: Dangerous (has extensive Notion tracking templates), RoboCop references

@@ -1,8 +1,8 @@
 # 🔺 Perplexity Computer — Master Index
-## MAE Protocol × Commander Cue Palmer
+## MAE Protocol × Commander [COMMANDER]
 
 **Version:** 1.0 | **Created:** 2026-03-31 | **Status:** LIVE
-**Operator:** Caquan "Cue" Lashard Palmer (Scrollwalker Prime)
+**Operator:** [COMMANDER] (Scrollwalker Prime)
 **Protocol:** OOL Triangle active — OBSERVE → ORIENT → LEAD → LOOP
 
 ---
@@ -11,18 +11,18 @@
 
 | Field | Value |
 |---|---|
-| Full Name | Caquan "Cue" Lashard Palmer |
+| Full Name | [COMMANDER] |
 | Age | 36 |
 | Military | SGT (E-5), 9th Engineer Bn, U.S. Army |
 | Deployments | 3 combat (2× Iraq, 1× Afghanistan) |
 | Status | Combat-wounded veteran |
 | MOS | Route Clearance / Infantry Direct Support |
 | Award | Army Achievement Medal (JROTC mentorship) |
-| Education | Niagara University — CS / Digital Forensics |
+| Education | [INSTITUTION] — CS / Digital Forensics |
 | Student ID | s0976307 |
-| Location | Lockport / Niagara region, NY + Jamaica |
+| Location | [BASE-CITY] / Niagara region, NY + Jamaica |
 | Languages | English, Spanish, Jamaican Patois |
-| Career Goal | Veteran-owned regenerative cattle ranch + drone tech (DroneScopeWNY) |
+| Career Goal | Veteran-owned regenerative cattle ranch + drone tech (DroneScope[REGION-SHORT]) |
 | Lucky Moment | Mae |
 
 ---
@@ -75,18 +75,18 @@
 | Discord | Send messages | 🟢 CONNECTED |
 | YouTube | Upload, search, manage | 🟢 CONNECTED |
 
-### GitHub Repositories (combat1011)
+### GitHub Repositories ([CALLSIGN])
 | Repo | Visibility | Last Commit | Description |
 |---|---|---|---|
 | My-Autonomous-Entity | Private | `e2cfd3d` (3/31) | MAE Protocol — MAEZ v8.1a, doctrine, agents |
 | mae-coursework | Private | `04e2d21` (3/31) | Academic content by semester |
-| combat1011.github.io | Public | `bf598e6` (3/31) | Personal site + Purple Feather |
+| [CALLSIGN].github.io | Public | `bf598e6` (3/31) | Personal site + Purple Feather |
 
 ### Live Deployments
 | Site | URL | Status |
 |---|---|---|
-| Personal Site | https://combat1011.github.io | 🟢 HTTP 200 |
-| Purple Feather | https://combat1011.github.io/purple-feather/ | 🟢 HTTP 200 |
+| Personal Site | https://[CALLSIGN].github.io | 🟢 HTTP 200 |
+| Purple Feather | https://[CALLSIGN].github.io/purple-feather/ | 🟢 HTTP 200 |
 
 ---
 
@@ -190,7 +190,7 @@
 | Saturday | Combat Training 6-7:30 PM |
 | Sunday | Combat Training 6-7:30 PM |
 
-**Combat Training:** 30 Pine St, Lockport, NY
+**Combat Training:** 30 Pine St, [BASE-LOCATION]
 **Sled Practice:** Northtown Center, Williamsville
 
 ---
@@ -233,7 +233,7 @@ Canvas API ──→ Perplexity ──→ Notion (Courses DB, Sync Log)
 |---|---|---|
 | MAE Protocol | Active | Core AI copilot framework |
 | Purple Feather v0.1 | Deployed | Student MAE variant for Niagara |
-| DroneScopeWNY | Staging | Veteran-owned drone services |
+| DroneScope[REGION-SHORT] | Staging | Veteran-owned drone services |
 | CardGame2M | Complete | Visual Programming final project |
 | ScrollwalkerGPT | Active | ChatGPT Custom GPT |
 | Canvas Grade Checker | Built | Java app (org.mae.canvas) |

@@ -1,7 +1,7 @@
 # ENG342A — Writing and AI
 ## Deliverables: Position Paper, Response 2, Reply 2
-**Student:** Caquan "Cue" Lashard Palmer
-**Course:** ENG342A — Writing and AI, Niagara University
+**Student:** [COMMANDER]
+**Course:** ENG342A — Writing and AI, [INSTITUTION]
 **Instructor:** Dr. Little
 **Date:** April 2026
 
@@ -13,9 +13,9 @@
 
 **Constrained by Design: Why Persona-Anchored AI Systems Represent a More Ethical and Effective Approach to AI-Assisted Writing Than Unconstrained Large Language Models**
 
-Caquan "Cue" Lashard Palmer
+[COMMANDER]
 ENG342A — Writing and AI
-Niagara University
+[INSTITUTION]
 Dr. Little
 April 9, 2026
 
@@ -177,7 +177,7 @@ Technology Review. (2021, April 23). *Stop talking about AI ethics. It's time to
 # DELIVERABLE 2: RESPONSE 2
 
 **Course:** ENG342A — Writing and AI
-**Student:** Caquan "Cue" Lashard Palmer
+**Student:** [COMMANDER]
 **Assignment:** Response 2 — Course Reading Response
 **Reading:** Kate Crawford, *Atlas of AI: Power, Politics, and the Planetary Costs of Artificial Intelligence* (Yale University Press, 2021), Chapter 4: "Classification"
 
@@ -203,7 +203,7 @@ These are the questions a constrained, persona-anchored AI system at least makes
 # DELIVERABLE 3: REPLY 2
 
 **Course:** ENG342A — Writing and AI
-**Student:** Caquan "Cue" Lashard Palmer
+**Student:** [COMMANDER]
 **Assignment:** Reply 2 — Peer Response
 
 ---

@@ -1,7 +1,7 @@
 # Java in the Age of AI: Enterprise Frameworks, Machine Learning Libraries, and the Future of AI-Ready Programming
 
-**Author:** Caquan "Cue" Lashard Palmer
-**Institution:** Niagara University
+**Author:** [COMMANDER]
+**Institution:** [INSTITUTION]
 **Course Context:** Advanced Research — Building on CIS355A (Artificial Intelligence) and CIS265A (Visual Programming I / Java)
 **Date:** March 2026
 **Citation Style:** APA

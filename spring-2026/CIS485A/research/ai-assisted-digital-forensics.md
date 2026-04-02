@@ -1,7 +1,7 @@
 # AI-Assisted Digital Forensics: Automating Evidence Acquisition, Analysis, and Chain of Custody Integrity
 
-**Caquan "Cue" Lashard Palmer**
-Department of Computing and Information Sciences, Niagara University
+**[COMMANDER]**
+Department of Computing and Information Sciences, [INSTITUTION]
 CIS285B — Computer Forensics I | CIS485A — Information Security
 Spring 2026
 
@@ -310,5 +310,5 @@ For digital forensics professionals, the skill set required is evolving. Underst
 ---
 
 *Submitted in partial fulfillment of course requirements.*
-*Niagara University — Digital Forensics Program*
+*[INSTITUTION] — Digital Forensics Program*
 *Spring 2026*

@@ -2,8 +2,8 @@
 
 > Tactical academic content organized by the MAE (Modular Adaptive Entity) protocol framework.
 
-**Operator:** Commander Cue Palmer  
-**Institution:** Niagara University — CS / Digital Forensics  
+**Operator:** Commander [COMMANDER]  
+**Institution:** [INSTITUTION] — CS / Digital Forensics  
 **Framework:** MAE Protocol (MAEZ v8.1a)  
 **Status:** ACTIVE  
 **Last Sync:** 2026-03-31 (Perplexity Computer × Canvas API)
@@ -89,8 +89,8 @@ All coursework is processed through the MAE Tactical Brief system:
 ### Cross-Platform Links
 - **Notion Courses DB:** [📘 Courses](https://www.notion.so/23ab21fa497246329e093feddcda9e27)
 - **Notion Tactical Briefs:** [🎯 Class Ops](https://www.notion.so/cd3cffa4758a4ef6b3953aaa43fc619b)
-- **MAE Protocol Repo:** [My-Autonomous-Entity](https://github.com/combat1011/My-Autonomous-Entity) (private)
-- **Public Site:** [combat1011.github.io](https://combat1011.github.io)
+- **MAE Protocol Repo:** [My-Autonomous-Entity](https://github.com/[CALLSIGN]/My-Autonomous-Entity) (private)
+- **Public Site:** [[CALLSIGN].github.io](https://[CALLSIGN].github.io)
 - **Canvas:** niagara.instructure.com (API synced)
 
 ---
