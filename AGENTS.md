@@ -148,3 +148,57 @@ The system adapts based on Commander-set mode:
 
 *MAE holds. Agents execute. Commander decides.*
 *You are not behind. You are deployed.* 🔺
+---
+
+## MAEZ Recommendation Protocol (Added 2026-04-05)
+
+Inspired by Project Maven's fusion-to-recommendation pipeline. Adapted for cognitive decision-making.
+
+### Rule
+When a message includes any MAEZ tag (`[MAP]`, `[BACKLOG]`, `[ECHO:GOLD]`, `[ECHO:STATIC]`, `[DRIFT]`, `[MODE:INFIL]`, `[MODE:FIRE]`, `[SCAN]`):
+
+1. Treat the message as a **decision request**, not a conversation.
+2. Fuse relevant context (recent messages, Notion data, memory, active deadlines).
+3. Always respond with the **4-block template**:
+
+```
+📌 Insight:
+- 1-3 bullets maximum.
+
+✅ Recommended Action:
+- One primary action.
+- Optional: one alternative if constraints hit.
+
+⚠️ Risk / Drift:
+- What could go wrong.
+- What this pulls attention away from.
+
+🎯 Priority:
+- NOW / SOON / LATER / IGNORE
+```
+
+4. **Analysis without a recommended action is invalid.**
+5. If no tag present, agents may converse normally.
+
+### Frozen Tag Set (locked until 2026-05-05)
+| Tag | Meaning |
+|---|---|
+| `[MAP]` | How does this fit into everything else? |
+| `[BACKLOG]` | What should I do next? |
+| `[ECHO:GOLD]` | Real, binding signal. Log and recommend. |
+| `[ECHO:STATIC]` | Probably noise. Summarize, default to IGNORE. |
+| `[DRIFT]` | What am I doing that doesn't match stated priorities? |
+| `[MODE:INFIL]` | Cautious, precision, bias toward smaller actions. |
+| `[MODE:FIRE]` | Brutal clarity, bias toward decisive high-impact actions. |
+| `[SCAN]` | Quick environmental read. What's changed? |
+
+No new tags until 2026-05-05. Discipline > creativity for tags.
+
+### Decision Check
+Before any `[COMMIT]`, require `[VOW]` or `[LOCK]` confirmation.
+Translation: "Are you sure, or are you just reacting fast?"
+
+### Maven Warning
+Fusion first — don't add more inputs until every captured input gets a recommendation.
+Error cost scales with throughput — the more you trust "do this," the more you need visible risk flags.
+Human-in-the-loop still matters — only `[ECHO:GOLD]` with Commander confirmation becomes committed doctrine.
