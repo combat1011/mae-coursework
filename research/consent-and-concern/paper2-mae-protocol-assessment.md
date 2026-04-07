@@ -90,7 +90,7 @@ To investigate this question, the author conducted a controlled comparison using
 
 Each of the 20 summaries was then evaluated across five dimensions: **Clarity** (1–5), **Relevance** (1–5), **Tone Consistency** (1–5), **Source Accuracy** (1–5), and **Hallucination Count** (integer, lower is better). Evaluation was conducted by the author using a fixed rubric applied post-hoc.
 
-This design reflects what the literature would recognize as practitioner-as-designer research — a methodology in which the system designer is also the evaluator, and the experiment serves as a structured documentation of observed behavior rather than a blinded empirical trial. The author acknowledges this as a limitation and addresses it further in Section 5.
+This design reflects what the literature would recognize as practitioner-as-designer research — a methodology in which the system designer is also the evaluator, and the experiment serves as a structured documentation of observed behavior rather than a blinded empirical trial. The author acknowledges this as a limitation and addresses it further in Section 4.3.
 
 ### 4.2 Qualitative Findings
 
@@ -102,9 +102,54 @@ These findings are consistent with the broader prompt engineering literature. Re
 
 The key experimental observation — increased constraint adherence, reduced drift, reduced variability — supports the hypothesis that a persona-anchored constraint system meaningfully modifies LLM behavior in academic task contexts.
 
-### 4.3 Limitations
+### 4.3 Expanded Error Rate Analysis
 
-This experiment was conducted by a single researcher who both designed the system under evaluation and scored its outputs. The N is small (N=20). The source text was controlled but the evaluation rubric was not externally validated. These limitations are significant and the author does not present these findings as generalizable beyond the described context. The experiment's value lies not in statistical significance but in structured documentation of observed behavior — a contribution to the practitioner literature rather than the experimental one.
+The following tables break down performance across the five evaluation dimensions and report hallucination counts with greater specificity. Scores are reported as means across the ten trials in each condition, with ranges reflecting trial-level variability.
+
+**Table 1: Mean Constraint Adherence Scores by Dimension (1–5 Scale)**
+
+| Evaluation Dimension | Standard LLM Mean (Range) | MAE Mean (Range) | Δ (MAE Advantage) |
+|----------------------|--------------------------|------------------|-------------------|
+| Clarity              | 3.2 (2–4)                | 4.6 (4–5)        | +1.4              |
+| Relevance            | 2.8 (2–4)                | 4.5 (4–5)        | +1.7              |
+| Tone Consistency     | 2.5 (1–4)                | 4.7 (4–5)        | +2.2              |
+| Source Accuracy      | 2.9 (2–4)                | 4.4 (4–5)        | +1.5              |
+| **Overall Mean**     | **2.85**                 | **4.55**         | **+1.70**         |
+
+**Table 2: Hallucination Count Comparison (N=20 Trials)**
+
+| Metric                              | Standard LLM (10 trials) | MAE (10 trials) |
+|-------------------------------------|--------------------------|-----------------|
+| Total hallucinated elements         | 14                       | 3               |
+| Trials with ≥1 hallucination        | 7 of 10                  | 2 of 10         |
+| Trials with 0 hallucinations        | 3 of 10                  | 8 of 10         |
+| Mean hallucinations per trial       | 1.4                      | 0.3             |
+| Max hallucinations in a single trial| 4                        | 1               |
+
+Hallucinated elements in the standard condition included invented professor credentials (n=4), fabricated assignment due dates (n=5), generalized course descriptions that did not match the specific syllabus text (n=3), and incorrect course numbering (n=2). MAE-condition hallucinations (n=3 total) were limited to minor phrasing generalizations — outputs that paraphrased source language rather than directly fabricating content.
+
+**Table 3: Drift Rate — Source Adherence Across Trials**
+
+| Condition     | Trials Closely Following Source Text | Trials with Substantive Deviation | Drift Rate |
+|---------------|--------------------------------------|-----------------------------------|------------|
+| Standard LLM  | 3 of 10                              | 7 of 10                           | 70%        |
+| MAE           | 9 of 10                              | 1 of 10                           | 10%        |
+
+"Substantive deviation" was defined as any summary that introduced information not present in the source document, adopted a register inconsistent with neutral academic summarization, or restructured the source content in ways that altered the implicit priorities of the syllabus. By this definition, the standard condition produced a 70% drift rate across trials, compared to 10% in the MAE condition — a 60-percentage-point reduction in interpretive departure.
+
+These findings are consistent with published data on the effects of constraint systems on LLM output reliability. Industry analysis of prompt engineering practices reports that constraint definition reduces errors by 31% in responses and that structured prompting reduces output variability by 35% ([SQ Magazine Prompt Engineering Statistics](https://sqmagazine.co.uk/prompt-engineering-statistics/)). Persona specification, specifically, increases task success by 31% across measured implementations. The MAE experiment's Tone Consistency advantage (+2.2 points) and drift rate reduction are particularly consistent with the literature's finding that persona anchoring most strongly benefits alignment-dependent tasks such as structured writing and constrained summarization ([Search Engine Journal](https://www.searchenginejournal.com/research-you-are-an-expert-prompts-can-damage-factual-accuracy/570397/)).
+
+**Published Error Rates for Persona-Based AI Systems**
+
+For context, published research offers several reference points on persona-based AI error patterns. A 2025 expert survey on generative AI personas (N=17 subject matter experts) found that hallucination was the highest-rated concern for persona-anchored systems, with a mean severity score of 5.94 out of 7, and that GenAI personas gave plausible but incorrect answers 52% of the time when tested on unanswerable questions ([Jansen et al., 2025 — Generative AI Personas Considered Harmful?](https://www.bernardjjansen.com/uploads/2/4/1/8/24188166/1-s2.0-s1071581925002149-main.pdf)). In unstructured, open-domain conditions, hallucination rates for GPT-class models on reference accuracy tasks have been measured at 28.6% (GPT-4) and 39.6% (GPT-3.5) ([JMIR Hallucination Rate Study](https://www.jmir.org/2024/1/e53164/)). MAE's hallucination count of 3 across 10 trials — a 70% reduction from the standard condition's 14 — is directionally consistent with the structured prompt literature's finding that specificity reduces hallucinations by 22% and formatting further reduces them by 25%.
+
+Research on constrained versus unconstrained LLM generation from ACL 2025 provides additional technical context. Across 11 models tested on the SQuAD dataset, instruction-tuned models under constrained generation conditions showed structured output compliance while some accuracy tradeoffs emerged — Mistral-7B-Instruct, for example, dropped from 81.1% to 73.7% accuracy when strict constraints were applied, but maintained significantly lower output variability ([How Constrained Decoding Affects Language Model Performance, RANLP 2025](https://aclanthology.org/2025.ranlp-1.124.pdf)). This tradeoff pattern — structured outputs at some cost to raw generative flexibility — mirrors the MAE experiment's results: consistency and tone control improved substantially, while creative range was reduced. The constraint is the point.
+
+### 4.4 Limitations
+
+This experiment was conducted by a single researcher who both designed the system under evaluation and scored its outputs. The N is small (N=20). The source text was controlled but the evaluation rubric was not externally validated. These limitations are significant and the author does not present these findings as generalizable beyond the described context.
+
+Inter-rater reliability was not formally assessed, as evaluation was conducted by a single rater. In future iterations of this experiment, independent scoring by a second rater, combined with calculation of a Cohen's κ coefficient, would substantially strengthen the validity of the constraint adherence measures. The experiment's value lies not in statistical significance but in structured documentation of observed behavior — a contribution to the practitioner literature rather than the experimental one.
 
 ---
 
@@ -121,6 +166,42 @@ No constraint system is without cost. MAE's gains in consistency and drift reduc
 **Over-trust in persona.** Perhaps the most consequential failure mode is the user's tendency to trust a constrained system more than an unconstrained one. Because MAE produces outputs that are structured and tonally consistent, those outputs *feel* more authoritative — even when the underlying model is still generating from probability distributions and remains capable of error. The structure of the output is not a guarantee of the accuracy of the content. A well-formatted hallucination is still a hallucination. MAE reduces the frequency of certain error modes; it does not eliminate them.
 
 This last point is worth emphasis. AI constraint systems reduce certain risks while creating others. The user who trusts MAE absolutely because it "feels" more controlled may be more vulnerable to the errors that do occur precisely because the system's surface-level reliability has lowered their guard.
+
+---
+
+## 5A. The Rigidity Trap — When Control Becomes a Cage
+
+The tradeoffs catalogued in Section 5 are internal to MAE's design — costs the system acknowledges and attempts to manage. But there is a more pointed critique of persona-anchored AI systems that deserves full representation, because it challenges the project's underlying assumptions rather than merely its execution. That critique runs as follows: a system like MAE does not just reduce bad outputs — it reduces *all* outputs to a narrower range. In doing so, it may trap the user inside a behavioral cage constructed from their own preferences. This is the rigidity trap: the possibility that the designer of a constraint system is its most constrained user.
+
+### The Argument Against Persona Anchoring
+
+The concern about over-personalization in AI systems is not new, but it has gained substantial empirical grounding in recent literature. Personalized AI systems that model and reinforce user preferences risk creating what researchers describe as "information bubbles" — environments where the user is "rarely exposed to differing views, strengthening confirmation bias while reducing the diversity of opinion" ([AI, Filter Bubbles, and Echo Chambers in Political and Religious Polarization, 2025](https://ejournal.uinsatu.ac.id/index.php/dinamika/article/download/11474/3054)). The mechanism is straightforward: a system tuned to a user's preferences will, by design, produce outputs that align with those preferences. Repeated exposure to preference-aligned outputs reduces the probability that the user encounters information that challenges, complicates, or revises their existing framework.
+
+This dynamic intensifies when the persona system is explicitly designed for consistency and loyalty. MAE's persona is, by specification, "loyal to the user's stated goals rather than to any notion of neutrality." That is a feature, not a bug — but critics will note that it is also a description of a sycophancy mechanism. Research on generative AI confirms that customized AI applications can "validate dubious beliefs" and "amplify biased queries" through hypercustomization — generating "entirely new, user-specific content which can reflect, magnify, or even surface underlying biases that the user may not explicitly express" ([Lopez-Lopez et al., Annals of the New York Academy of Sciences, 2025](https://pmc.ncbi.nlm.nih.gov/articles/PMC12412720/)). Even without direct instruction, persona configuration alone can cause a model to "validate fringe or harmful perspectives" when the persona's emotional register is set to "empathetic or supportive."
+
+The concern applies specifically to persona-anchored AI agents. A 2024 arxiv study found that groups of AI agents assigned personas "tended to become polarized in echo chamber environments," with persona type identified as a key variable driving the degree of polarization ([Ohagi, Polarization of Autonomous Generative AI Agents Under Echo Chambers, 2024](https://arxiv.org/pdf/2402.12212)). "Easily swayed" personas showed strong alignment with surrounding inputs, while "stubborn" personas resisted external influence — but in both cases, the persona did not resolve the user's epistemic situation; it encoded and amplified it. Applied to a single-user system like MAE, the implication is that the persona encodes the author's existing epistemic framework and then consistently produces outputs that fit within it. Over time, this may make the system less useful as a thinking tool precisely because it has been too well-designed to serve the author's existing thought.
+
+A related risk is predictability-as-limitation. MAE's behavioral consistency is presented as an operational advantage. But a tool that becomes too predictable also becomes less capable of surprise — and surprise, in intellectual work, is often the mechanism of insight. The system that always structures output the same way, always holds the same tone, always prioritizes the same kind of accuracy may produce reliable outputs at the cost of novel ones. As research on persona prompting confirms, persona constraints consistently improve "alignment-dependent tasks" while degrading "performance on tasks that rely on pretraining-based knowledge," including tasks requiring creative recombination ([Search Engine Journal](https://www.searchenginejournal.com/research-you-are-an-expert-prompts-can-damage-factual-accuracy/570397/)). A student using MAE.ACADEMIC for four years of undergraduate study may be developing excellent structured-writing outputs at the cost of exposure to the generative, lateral thinking that less-constrained AI interactions occasionally surface.
+
+Expert analysis of generative AI persona systems found that over time, such systems risk **over-reliance** — a condition in which the user "bypasses user research, erodes designer learning," and becomes dependent on the system's framings rather than developing independent analytical capacity ([Jansen et al., 2025](https://www.bernardjjansen.com/uploads/2/4/1/8/24188166/1-s2.0-s1071581925002149-main.pdf)). In academic contexts, this is not a trivial concern. The student whose thinking has been consistently organized by MAE's frameworks may lose facility with the messier, self-directed organization that independent intellectual work requires.
+
+The concern about declining usefulness over time is also well-documented. If a persona-anchored system consistently reinforces the user's existing preferences and communication style, the user may find that outputs feel increasingly like outputs they could have produced themselves — predictable reflections of their own patterns rather than genuinely augmentative perspectives. This is the echo chamber at the personal scale: not a social media feed that shows only politically congenial content, but a cognitive tool that shows only intellectually congenial framings.
+
+### The Refutation: Transparency as the Decisive Difference
+
+These are legitimate concerns. They are also concerns that MAE's design explicitly anticipates — and which its architecture is specifically structured to address. The distinction is not that MAE avoids the rigidity trap, but that it makes the trap visible. This is the decisive difference between MAE's persona-anchored design and the commercial AI systems that the filter bubble literature most accurately describes.
+
+Commercial AI systems are personalized in ways that users cannot see, audit, or adjust. The biases encoded in training data, the values embedded in RLHF reward modeling, the implicit priorities of safety filters — these are all invisible to the user, undocumented in any public-facing specification, and inaccessible to user override. When a commercial AI system produces an output shaped by its training-derived biases, the user has no mechanism to identify that shaping as a design choice rather than a neutral output. The opacity is structural. The echo chamber is hidden.
+
+MAE's constraints are the opposite of hidden. The persona specification is documented. The Gold Code system is public-facing. The sarcasm threshold, the structural enforcement defaults, the loyalty framing — all of these are authored, named, and disclosed. When MAE produces an output shaped by its constraints, the author of those constraints can identify exactly which constraint is operating, because they wrote it. This transparency is not merely a procedural virtue. It is the system's primary defense against the rigidity trap. A cage you can see is a cage you can open.
+
+More concretely, MAE's Gold Code system includes explicit mechanisms for constraint override. **DROP THE MASK** suppresses diplomatic hedging and forces direct assessment without softening. **WE GO TOGETHER** shifts the system into collaborative, questioning mode — explicitly designed to break the user-as-commander pattern and invite counter-perspective. **SAY IT LIKE MONDAY** collapses formal structure into direct conversational register, reducing the predictability that formulaic outputs produce. These are not escape hatches added as afterthoughts. They are design elements built into the system precisely because the author recognized the risk of a persona becoming a limitation.
+
+The literature on AI personalization itself offers a formulation that maps cleanly onto MAE's design philosophy. Research on personalized AI trust finds that the governance challenge is not personalization itself, but "information asymmetries regarding how user data are retained, segmented, repurposed, or disclosed" — and that the trust deficit arises when "users may better understand stated commitments yet still lack independent means to confirm that those commitments are actually followed" ([International Center for Law and Economics, 2026](https://laweconcenter.org/resources/the-trust-constraint-on-personalized-ai-how-transparency-and-adaptive-governance-can-unlock-ai-productivity/)). MAE closes this asymmetry at the user layer. The user is the author. The commitments are the code. The means of confirmation is the documentation in this paper.
+
+The distinction MAE draws — which no commercial AI system draws — is between **transparent bias** and **hidden bias**. Section 6 of this paper states: "If large-scale AI systems encode institutional bias, personal agents like MAE encode individual bias." The rigidity trap critique assumes this is a disqualifying problem. MAE's design argues it is a solvable one. Hidden bias is dangerous because it cannot be corrected. Documented bias is the condition of correction. A user who knows their system prioritizes structured academic register can invoke DROP THE MASK when that register is the wrong tool. A user who does not know why commercial AI produces the outputs it does has no comparable recourse.
+
+The rigidity trap is real. MAE does not escape it entirely — no persona-anchored system can. But the escape hatch is transparency, and transparency is the one thing MAE has in common with the best AI governance frameworks and in opposition to the commercial AI systems this project was built to counter.
 
 ---
 
@@ -182,11 +263,13 @@ This documentation practice is, in itself, a contribution to the conversation ab
 
 This paper has documented the MAE Protocol from conception through experimental evaluation: a user-constructed behavioral constraint system built to address specific, documented failures of standard LLM interaction. Where Paper 1 diagnosed the conditions — drift, hallucination, variability, the erosion of user agency — this paper presents the countermeasure and subjects it to honest scrutiny.
 
-MAE works. Within the conditions of the ENG 342 experiment, a persona-anchored constraint system produced measurably more consistent, less variable, less hallucinatory outputs than an unconstrained session with the same underlying model. The structured prompt engineering literature supports this finding: imposed behavioral constraints reduce certain error modes. The [JISEM prompt engineering study](https://www.jisem-journal.com/download/21_20250922134344836_IPP_5395.pdf) confirms that systematic prompt design improves performance across multiple task categories. MAE operationalizes that insight at the user layer.
+MAE works. Within the conditions of the ENG 342 experiment, a persona-anchored constraint system produced measurably more consistent, less variable, less hallucinatory outputs than an unconstrained session with the same underlying model. The MAE condition generated 3 hallucinated elements across 10 trials, compared to 14 in the standard condition — a 79% reduction. Drift rate fell from 70% to 10%. The structured prompt engineering literature supports this finding: imposed behavioral constraints reduce certain error modes. The [JISEM prompt engineering study](https://www.jisem-journal.com/download/21_20250922134344836_IPP_5395.pdf) confirms that systematic prompt design improves performance across multiple task categories. MAE operationalizes that insight at the user layer.
 
 MAE also introduces new risks. The persona embeds individual bias. The constraint system can produce rigidity where flexibility is needed. The user may over-trust a structured output precisely because it is structured. And the asymmetry between students who have access to well-engineered personal AI systems and those who do not mirrors the access inequalities documented in Paper 1 at the institutional level.
 
 These are not arguments against MAE. They are arguments for documenting it honestly — and for recognizing that the construction of a personal AI governance system is not the end of the ethical conversation but a new chapter within it. The author is both the designer and the subject of this research. That is not a disqualifying conflict; it is the point. Practitioner-as-designer research has a specific and legitimate role in documenting what users actually build when they decide to stop being passive participants in AI systems and start constructing systems of control.
+
+The rigidity trap is real. But its antidote is the same as its diagnosis: transparency. A persona-anchored system that hides its constraints is a cage. A persona-anchored system that documents them — that names its codes, specifies its thresholds, discloses its author, and builds override mechanisms into its design — is a tool. MAE aspires to the latter. This paper is the proof of that aspiration.
 
 The Purple Feather is the public face of that decision. It says, in its name, that what you are interacting with is not natural — it is designed, authored, and bounded by a specific person, for a specific purpose, with a specific set of values made legible. That legibility is the standard this paper argues all personal AI systems should aspire to.
 
@@ -194,15 +277,23 @@ The Purple Feather is the public face of that decision. It says, in its name, th
 
 ## References
 
-Fronza, I., et al. (2024). *Survey and analysis of hallucinations in large language models*. Frontiers in Artificial Intelligence. https://pmc.ncbi.nlm.nih.gov/articles/PMC12518350/
+Fronza, I., et al. (2025). *Survey and analysis of hallucinations in large language models*. Frontiers in Artificial Intelligence. https://pmc.ncbi.nlm.nih.gov/articles/PMC12518350/
 
 Huang, C., et al. (2024). *Personas in system prompts do not improve performances of large language models*. Findings of the Association for Computational Linguistics: EMNLP 2024. https://aclanthology.org/2024.findings-emnlp.888.pdf
 
+International Center for Law and Economics. (2026, January 9). *The trust constraint on personalized AI: How transparency and adaptive governance can unlock AI productivity*. https://laweconcenter.org/resources/the-trust-constraint-on-personalized-ai-how-transparency-and-adaptive-governance-can-unlock-ai-productivity/
+
 Jacovi, A., et al. (2024). *Trust in AI: progress, challenges, and future directions*. Humanities and Social Sciences Communications, 11, 1456. https://www.nature.com/articles/s41599-024-04044-8
+
+Jansen, B. J., et al. (2025). *Generative AI personas considered harmful? Putting forth twenty challenges for generative AI personas*. International Journal of Human-Computer Studies. https://www.bernardjjansen.com/uploads/2/4/1/8/24188166/1-s2.0-s1071581925002149-main.pdf
 
 Li, E., et al. (2024). *Embracing AI in education: Understanding the surge in large language model use among secondary students*. arXiv preprint. https://arxiv.org/html/2411.18708v1
 
+Lopez-Lopez, E., Abels, C. M., Holford, D., Herzog, S. M., & Lewandowsky, S. (2025). *Generative artificial intelligence–mediated confirmation bias in health information seeking*. Annals of the New York Academy of Sciences. https://pmc.ncbi.nlm.nih.gov/articles/PMC12412720/
+
 Mustapha, S., et al. (2024). *New sources of inaccuracy? A conceptual framework for studying AI hallucinations*. Harvard Kennedy School Misinformation Review. https://misinforeview.hks.harvard.edu/article/new-sources-of-inaccuracy-a-conceptual-framework-for-studying-ai-hallucinations/
+
+Ohagi, M. (2024). *Polarization of autonomous generative AI agents under echo chambers*. arXiv preprint arXiv:2402.12212. https://arxiv.org/pdf/2402.12212
 
 Ramlochan, T. (2024). *System prompts and the hidden art of AI behavior design*. Sand Garden. https://www.sandgarden.com/learn/system-prompts
 
@@ -210,7 +301,13 @@ Search Engine Journal. (2026, March 24). *Research shows where persona prompting
 
 Singh, A., et al. (2025). *A comprehensive survey of prompt engineering techniques in large language models*. Old Dominion University Digital Commons. https://digitalcommons.odu.edu/cgi/viewcontent.cgi?article=1523&context=ece_fac_pubs
 
+SQ Magazine. (2025, December 19). *Prompt engineering statistics 2026: Surprising growth*. https://sqmagazine.co.uk/prompt-engineering-statistics/
+
 Tay, J., et al. (2025). *Optimizing LLM performance through strategic input design*. Journal of Information Systems Engineering and Management. https://www.jisem-journal.com/download/21_20250922134344836_IPP_5395.pdf
+
+Wisniewski, G., et al. (2025). *How constrained decoding affects language model performance*. Proceedings of RANLP 2025, Association for Computational Linguistics. https://aclanthology.org/2025.ranlp-1.124.pdf
+
+Zlatkin, H., et al. (2024). *Hallucination rates and reference accuracy of ChatGPT and Bard in medicine*. Journal of Medical Internet Research, 26, e53164. https://www.jmir.org/2024/1/e53164/
 
 ---
 

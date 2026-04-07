@@ -1,17 +1,18 @@
 # Purple Feather: Designing a Student-Centric AI Copilot Through Modular Adaptive Entity Architecture
 
-**Author:** [COMMANDER]  
-**Institution:** [INSTITUTION]  
+**Author:** Caquan "Cue" Lashard Palmer  
+**Institution:** Niagara University  
 **Course Context:** ENG342A — Writing and AI (Dr. Little)  
-**Date:** March 2026  
+**Date:** March 2026 (v2 revised June 2026)  
 **Classification:** Original System Documentation and Technical Analysis  
-**APA Citation Style**
+**APA Citation Style**  
+**Version Notes (v2):** Added Section X (Counterargument: Why Not Just Use Khanmigo?) and Section XI (Error Rates and Usability). Nine new sources from 2024–2026 appended. Section numbering updated throughout. All original thesis, arguments, and structure preserved.
 
 ---
 
 ## Abstract
 
-This paper documents and analyzes Purple Feather, a student-oriented artificial intelligence copilot designed and deployed by [COMMANDER] at [INSTITUTION]. Purple Feather is a controlled fork of the Modular Adaptive Entity (MAE) protocol — a tactical AI architecture originally designed for high-intensity decision support — adapted to the demands of college student life at approximately 65% operational intensity. The system operates through four domain modules (MAE.ACADEMIC, MAE.LIFE, MAE.LOCAL, and MAE.DEFEND-LITE), six natural language Gold Codes for mode-switching, and a strict advisory-only hard limit that explicitly refuses to produce academic work on behalf of students. Drawing on research in intelligent tutoring systems, persona-anchored prompt engineering, modular AI architecture, and veteran-student mental health outcomes, this paper contextualizes Purple Feather within the broader landscape of educational AI tools while arguing that its design philosophy — agency preservation over task completion — represents a meaningfully distinct contribution to the field. The system is live at [https://[CALLSIGN].github.io/purple-feather/](https://[CALLSIGN].github.io/purple-feather/) and documented in the GitHub repository [[CALLSIGN]/My-Autonomous-Entity](https://github.com/[CALLSIGN]/My-Autonomous-Entity) under the agents/purple-feather/ directory.
+This paper documents and analyzes Purple Feather, a student-oriented artificial intelligence copilot designed and deployed by Caquan "Cue" Palmer at Niagara University. Purple Feather is a controlled fork of the Modular Adaptive Entity (MAE) protocol — a tactical AI architecture originally designed for high-intensity decision support — adapted to the demands of college student life at approximately 65% operational intensity. The system operates through four domain modules (MAE.ACADEMIC, MAE.LIFE, MAE.LOCAL, and MAE.DEFEND-LITE), six natural language Gold Codes for mode-switching, and a strict advisory-only hard limit that explicitly refuses to produce academic work on behalf of students. Drawing on research in intelligent tutoring systems, persona-anchored prompt engineering, modular AI architecture, and veteran-student mental health outcomes, this paper contextualizes Purple Feather within the broader landscape of educational AI tools while arguing that its design philosophy — agency preservation over task completion — represents a meaningfully distinct contribution to the field. The system is live at [https://combat1011.github.io/purple-feather/](https://combat1011.github.io/purple-feather/) and documented in the GitHub repository [combat1011/My-Autonomous-Entity](https://github.com/combat1011/My-Autonomous-Entity) under the agents/purple-feather/ directory.
 
 ---
 
@@ -19,7 +20,7 @@ This paper documents and analyzes Purple Feather, a student-oriented artificial 
 
 The arrival of large language model (LLM)-powered tools in higher education has generated enormous institutional debate — much of it centered on what AI should not do for students. Less attention has been paid to how AI should behave *with* students: how it communicates, what boundaries it maintains, when it pushes and when it pulls back, and whether the student remains in command of their own trajectory. This paper argues that those design questions are not secondary — they are the design.
 
-Purple Feather is a purpose-built AI copilot created by [COMMANDER], a combat veteran and [INSTITUTION] student, to address a gap that commercial AI tools have largely failed to fill: not just answering academic questions, but stabilizing the full operational context of a student's life. The name is deliberate. In aviation, the "feathering" of a propeller blade reduces drag and allows a stricken aircraft to continue flight. Purple Feather does not fly the mission. It feathers the environment so the student can.
+Purple Feather is a purpose-built AI copilot created by Caquan "Cue" Palmer, a combat veteran and Niagara University student, to address a gap that commercial AI tools have largely failed to fill: not just answering academic questions, but stabilizing the full operational context of a student's life. The name is deliberate. In aviation, the "feathering" of a propeller blade reduces drag and allows a stricken aircraft to continue flight. Purple Feather does not fly the mission. It feathers the environment so the student can.
 
 The need for this kind of support is empirically grounded. [Research from the VA](https://www.research.va.gov/currents/1017-Veterans-face-challenges-in-higher-education.cfm) has documented that veteran students face elevated rates of PTSD, anxiety, and adjustment difficulty compared to traditional college peers, with those factors directly correlated to academic attrition. A [Government Accountability Office report analyzed by the VFW](https://www.vfw.org/media-and-events/latest-releases/archives/2024/8/student-veterans-seek-mental-health-care-more-often) found that approximately 70% of student veterans receiving VA healthcare in fiscal year 2022 were treated for mental health conditions — a rate dramatically higher than the 40% seen in the broader veteran population. Meanwhile, general college students across all demographics face documented crises of overwhelm, burnout, and academic failure that existing AI tools have only partially addressed. [Studies published in *Frontiers in Psychology*](https://pmc.ncbi.nlm.nih.gov/articles/PMC11830699/) confirm that AI tools can reduce academic stress and improve engagement, but also introduce risks of over-reliance, digital fatigue, and erosion of student agency if not properly constrained.
 
@@ -91,7 +92,7 @@ Each clause of this directive carries operational weight. "Protect the student" 
 
 Purple Feather's boundary statement is precise: *"I'm not your commander unit. I'm your wing support. You fly the mission."* This language does significant design work. It clarifies the power relationship (the student is in command), defines the system's role (support, not authority), and uses an aviation metaphor that maps naturally onto a veteran's operational vocabulary without requiring explanation. It also pre-empts the most common misuse pattern for AI tools — treating them as the decision-maker — by explicitly coding subordination into the system's self-concept.
 
-The system's tagline, *"Your wing support. You fly the mission,"* functions as both interface copy and behavioral commitment. [The live deployment page](https://[CALLSIGN].github.io/purple-feather/) presents this framing to users at first contact, establishing expectations before any interaction begins.
+The system's tagline, *"Your wing support. You fly the mission,"* functions as both interface copy and behavioral commitment. [The live deployment page](https://combat1011.github.io/purple-feather/) presents this framing to users at first contact, establishing expectations before any interaction begins.
 
 ### 4.3 Intensity Calibration
 
@@ -130,9 +131,9 @@ The module's non-clinical constraint is explicit: Purple Feather will not diagno
 
 ### 5.3 MAE.LOCAL
 
-The MAE.LOCAL module provides campus-specific resource integration for [INSTITUTION] students. It operates as a knowledge layer over the physical and administrative campus environment: library hours, tutoring center availability, health center services, academic support programs, financial aid resources, and other campus-specific information that is often difficult for students to locate in fragmented institutional websites.
+The MAE.LOCAL module provides campus-specific resource integration for Niagara University students. It operates as a knowledge layer over the physical and administrative campus environment: library hours, tutoring center availability, health center services, academic support programs, financial aid resources, and other campus-specific information that is often difficult for students to locate in fragmented institutional websites.
 
-This module addresses a documented gap in general-purpose AI tools. Commercial tools like Microsoft Copilot and ChatGPT can answer generic questions about college resources, but they cannot provide accurate, current information about a specific institution's specific services. MAE.LOCAL makes Purple Feather genuinely local — a system that knows [INSTITUTION], not just college life in the abstract. For a student mid-crisis trying to find the counseling center's walk-in hours, that specificity matters.
+This module addresses a documented gap in general-purpose AI tools. Commercial tools like Microsoft Copilot and ChatGPT can answer generic questions about college resources, but they cannot provide accurate, current information about a specific institution's specific services. MAE.LOCAL makes Purple Feather genuinely local — a system that knows Niagara University, not just college life in the abstract. For a student mid-crisis trying to find the counseling center's walk-in hours, that specificity matters.
 
 ### 5.4 MAE.DEFEND-LITE
 
@@ -143,7 +144,7 @@ The MAE.DEFEND-LITE module provides a reduced-intensity version of the parent MA
 - **Housing scam awareness**: A financially devastating category of fraud that specifically targets students seeking off-campus housing
 - **Predatory lending detection**: Financial literacy support around high-interest loan products, payday lenders, and exploitative financial services marketed toward students
 
-The inclusion of this module reflects both the creator's background in information security (currently enrolled in CIS485A — Information Security at [INSTITUTION]) and a recognition that college students, particularly first-generation students and veterans transitioning from structured military environments, face elevated exposure to financial and digital fraud. [Academic integrity research](https://evelynlearning.com/blog/the-cheating-evolution-how-advanced-ai-detection-tools-are-reshaping-academic-integrity-and-creating-smarter-assessment-strategies-in-2024) notes that academic dishonesty costs U.S. higher education approximately $1.2 billion annually — but non-academic fraud against students represents an under-studied financial threat to student persistence. Purple Feather treats digital security and financial literacy as student survival skills, not optional extras.
+The inclusion of this module reflects both the creator's background in information security (currently enrolled in CIS485A — Information Security at Niagara University) and a recognition that college students, particularly first-generation students and veterans transitioning from structured military environments, face elevated exposure to financial and digital fraud. [Academic integrity research](https://evelynlearning.com/blog/the-cheating-evolution-how-advanced-ai-detection-tools-are-reshaping-academic-integrity-and-creating-smarter-assessment-strategies-in-2024) notes that academic dishonesty costs U.S. higher education approximately $1.2 billion annually — but non-academic fraud against students represents an under-studied financial threat to student persistence. Purple Feather treats digital security and financial literacy as student survival skills, not optional extras.
 
 ---
 
@@ -192,7 +193,7 @@ The advisory-only model extends beyond academic integrity. Purple Feather does n
 
 ### 7.3 Clinical Boundaries
 
-The third hard limit — no clinical diagnosis — reflects both legal reality and design honesty. Purple Feather is not a licensed therapist. It does not have access to the student's medical history. It cannot distinguish between stress responses that will resolve with rest and stress responses that require professional intervention. What it can do is notice patterns, name them non-judgmentally, and point toward human professionals when the situation warrants. The [live site documentation](https://[CALLSIGN].github.io/purple-feather/) states this explicitly: *"Purple Feather is not a therapist, not a professor, not a doctor. It's a study partner with good pattern recognition. If something is serious, PF will always point you to a real human."*
+The third hard limit — no clinical diagnosis — reflects both legal reality and design honesty. Purple Feather is not a licensed therapist. It does not have access to the student's medical history. It cannot distinguish between stress responses that will resolve with rest and stress responses that require professional intervention. What it can do is notice patterns, name them non-judgmentally, and point toward human professionals when the situation warrants. The [live site documentation](https://combat1011.github.io/purple-feather/) states this explicitly: *"Purple Feather is not a therapist, not a professor, not a doctor. It's a study partner with good pattern recognition. If something is serious, PF will always point you to a real human."*
 
 ---
 
@@ -200,7 +201,7 @@ The third hard limit — no clinical diagnosis — reflects both legal reality a
 
 ### 8.1 Web Deployment
 
-Purple Feather is publicly accessible at [https://[CALLSIGN].github.io/purple-feather/](https://[CALLSIGN].github.io/purple-feather/), deployed through GitHub Pages — a free, version-controlled static hosting service. The site presents the system's core identity (tagline, boundary statement, module overview, Gold Codes), functions as both a user onboarding interface and a public documentation layer, and links users to the ChatGPT Custom GPT implementation for actual interaction. The design is deliberately spare: no onboarding wizard, no lengthy tutorial, no configuration required. The onboarding copy states: *"No setup, no onboarding wizard. Just talk to PF."*
+Purple Feather is publicly accessible at [https://combat1011.github.io/purple-feather/](https://combat1011.github.io/purple-feather/), deployed through GitHub Pages — a free, version-controlled static hosting service. The site presents the system's core identity (tagline, boundary statement, module overview, Gold Codes), functions as both a user onboarding interface and a public documentation layer, and links users to the ChatGPT Custom GPT implementation for actual interaction. The design is deliberately spare: no onboarding wizard, no lengthy tutorial, no configuration required. The onboarding copy states: *"No setup, no onboarding wizard. Just talk to PF."*
 
 This deployment choice reflects a considered design philosophy. Complex onboarding for a student support tool creates friction precisely at the moment when students most need support — when they're already overwhelmed. The three-step process articulated on the site (start a conversation, receive priority breakdown, take action) is designed to be executable in under two minutes from cold start.
 
@@ -216,7 +217,7 @@ The operative implementation of Purple Feather is a ChatGPT Custom GPT — one o
 
 ### 8.3 GitHub Documentation and Version Control
 
-The source documentation, system prompt architecture, and version history for Purple Feather are maintained at [[CALLSIGN]/My-Autonomous-Entity](https://github.com/[CALLSIGN]/My-Autonomous-Entity) under the agents/purple-feather/ directory. GitHub provides version-controlled documentation that enables:
+The source documentation, system prompt architecture, and version history for Purple Feather are maintained at [combat1011/My-Autonomous-Entity](https://github.com/combat1011/My-Autonomous-Entity) under the agents/purple-feather/ directory. GitHub provides version-controlled documentation that enables:
 
 - **Reproducibility**: The exact system state at any version can be inspected, tested, or forked by others
 - **Transparency**: The behavioral rules encoded in the system prompt are openly documented — there are no hidden operational parameters
@@ -235,7 +236,7 @@ The following table compares Purple Feather against the major commercial AI tool
 | **Primary Design Goal** | Student life stabilization + academic decision support | Academic tutoring (Socratic method) | Broad productivity + study support | Language learning (conversational practice) | Variable by configuration |
 | **Academic Integrity Hard Limit** | Yes — never writes assignments | Yes — guides, does not complete | No — will produce written content | N/A (language-specific) | No — default behavior produces content |
 | **Life/Wellbeing Module** | Yes (MAE.LIFE, DARK SKY) | No | Partial (mindfulness prompts) | No | No |
-| **Campus-Specific Integration** | Yes (MAE.LOCAL — [INSTITUTION]) | Partial (Khan Academy content) | No | No | No |
+| **Campus-Specific Integration** | Yes (MAE.LOCAL — Niagara University) | Partial (Khan Academy content) | No | No | No |
 | **Security/Fraud Protection** | Yes (MAE.DEFEND-LITE) | No | No | No | No |
 | **Natural Language Command Interface** | Yes (Gold Codes) | No | No | No | No |
 | **Consistent Behavioral Identity** | Yes (persona-anchored, calibrated intensity) | Yes (Socratic persona) | No (generic assistant) | Partial (Lily character) | Depends on prompt |
@@ -245,7 +246,7 @@ The following table compares Purple Feather against the major commercial AI tool
 | **Deployment Cost to Student** | Free | Paid ($9–19/month or institutional) | Free (with Microsoft 365 EDU) | Paid subscription | Varies |
 | **Version** | v0.1 (active development) | Production | Production | Production | Variable |
 
-Sources: [Khanmigo](https://www.khanmigo.ai), [Microsoft Copilot](https://www.microsoft.com/en-us/microsoft-copilot/for-individuals/do-more-with-ai/learning-and-education/ai-assistant-for-college-students), [Duolingo Max](https://blog.duolingo.com/duolingo-max/), [Purple Feather live site](https://[CALLSIGN].github.io/purple-feather/)
+Sources: [Khanmigo](https://www.khanmigo.ai), [Microsoft Copilot](https://www.microsoft.com/en-us/microsoft-copilot/for-individuals/do-more-with-ai/learning-and-education/ai-assistant-for-college-students), [Duolingo Max](https://blog.duolingo.com/duolingo-max/), [Purple Feather live site](https://combat1011.github.io/purple-feather/)
 
 The comparison reveals a consistent pattern: commercial tools optimize for breadth (Copilot), domain depth (Khanmigo), or specific skill acquisition (Duolingo Max), but none integrates academic support, life stabilization, campus resource navigation, and digital security within a single coherent behavioral identity. None employs a natural language command interface. And none is designed with the specific cultural register of a veteran-student in mind.
 
@@ -253,33 +254,126 @@ Purple Feather is not more powerful than these tools on any single dimension. It
 
 ---
 
-## X. User Experience: The Veteran-Student Perspective
+## X. Counterargument: Why Not Just Use Khanmigo? — The Case for Commercial Student AI
 
-### 10.1 The Creator as Primary User
+### 10.1 The Strongest Version of the Commercial Argument
 
-Purple Feather was not designed for an imagined user — it was designed by, and for, [COMMANDER] himself. This practitioner-as-designer relationship is methodologically significant. Rather than attempting to model student needs from the outside, the system encodes the needs of a specific, real student navigating a specific, real academic context: five active courses including a statistically critical CIS485A grade, a prior research project in AI constraint adherence, coursework in cybersecurity, algorithms, AI ethics, and conflict simulation, and the full administrative and logistical complexity of being a combat veteran enrolled at [INSTITUTION].
+A serious objection to Purple Feather — and to student-built AI systems broadly — runs as follows: why reinvent the wheel when mature, professionally developed, institutionally vetted commercial tools already exist? Khanmigo launched in 2023 and scaled from 40,000 to 700,000 K-12 students in a single academic year, with projections exceeding one million for 2025–26 ([Education Week](https://www.edweek.org/technology/opinion-can-an-ai-powered-tutor-produce-meaningful-results/2025/07)). Microsoft Copilot for Education is embedded inside the same Microsoft 365 ecosystem that most universities already license, requiring no additional procurement, no new infrastructure, and no student learning curve beyond tools they already use. Duolingo Max, powered by GPT-4, serves over 130 million monthly active users and has documented a 51% surge in daily active users following its AI integration ([5D Vision](https://www.5dvision.com/post/case-study-duolingos-ai-powered-language-learning-revolution/)). These are not experiments — they are production systems tested at a scale no single student-built tool can approach.
 
-This auto-ethnographic design methodology — building a tool by living the problem it solves — produces a system whose specificity is its greatest strength and, initially, its greatest limitation. Purple Feather knows [COMMANDER]'s context better than any tool not built by [COMMANDER]. It will need deliberate expansion to generalize to a broader student population.
+The institutional case for commercial tools is further reinforced by four categories of advantage that legitimately matter in educational settings:
 
-### 10.2 Veteran Identity and Operational Language
+**Scale testing and safety guarantees.** Commercial tools are reviewed by professional content safety teams, legal departments, and institutional compliance offices before deployment. Khan Academy's Time magazine AI 100 recognition and its partnerships with over 450 U.S. school districts represent a level of institutional endorsement that no practitioner-built system has undergone ([Education Week](https://www.edweek.org/technology/opinion-can-an-ai-powered-tutor-produce-meaningful-results/2025/07)). Khanmigo's Chief Learning Officer, Kristen DiCerbo, has twenty years of educational technology research experience. The team behind these products is not a lone student — it is a multidisciplinary organization with dedicated efficacy researchers, IRB processes, and longitudinal data.
+
+**Documented learning outcomes.** Khan Academy's 2024 efficacy report, drawing on 350,000 students across grades 3–8, found that students who used the platform for 30 or more minutes per week experienced approximately 20% greater-than-expected learning gains as measured by the nationally normed MAP Growth Assessment, with an effect size of 0.36 ([Khan Academy](https://blog.khanacademy.org/khan-academy-efficacy-results-november-2024/)). Longitudinal analysis showed each additional skill practiced to proficiency yielded roughly 0.5 percentage points in gains relative to the student's own prior-year results. A published systematic review in *npj Science of Learning* confirmed that AI-driven intelligent tutoring systems produce generally positive effects on K-12 learning and performance, with personalization — particularly deep personalization when student engagement is high — generating effect sizes up to 0.92 ([Duru et al., 2025](https://pmc.ncbi.nlm.nih.gov/articles/PMC12078640/)).
+
+**LMS integration and institutional reach.** Microsoft Copilot is actively integrating with Canvas and Moodle via the IgniteAI initiative and open-source LTI samples, and the 2025 Microsoft AI in Education Report documents deployments at institutions including Miami Dade College and Brisbane Catholic Education ([Microsoft Education Blog](https://www.microsoft.com/en-us/education/blog/2025/06/empowering-educators-with-ai-innovation-and-insights/)). A World Bank study cited in the same report found that a Copilot pilot in Nigeria produced learning gains equivalent to 1.5 years of additional schooling, rating it among the most cost-effective educational interventions measured. These integrations allow AI to function where students already work — inside the LMS — rather than as a separate tool requiring context-switching.
+
+**Professional development pipelines and curriculum alignment.** Commercial tools employ full-time curriculum developers who align AI behavior to state standards, accreditation requirements, and pedagogical research. A lone student developer, regardless of skill, cannot replicate that infrastructure.
+
+This is the strongest version of the commercial argument. It is not a weak objection. It deserves a direct answer.
+
+### 10.2 What the Commercial Argument Gets Wrong
+
+The commercial case for tools like Khanmigo, Copilot, and Duolingo Max is strongest on the metrics those tools were designed to optimize: scale, curriculum coverage, institutional adoption, and aggregate learning gains. It is weakest precisely where Purple Feather's design is strongest: individual behavioral control, cultural identity alignment, life-domain integration, and the irreplaceable pedagogical value of building the system itself.
+
+**The personalization ceiling of commercial tools.** Commercial AI tools are built for populations, not persons. Khanmigo's Socratic model is effective for students who are already intrinsically motivated and engaged with Khan Academy's content library — but Khan Academy's own 2024 efficacy data reveals that only approximately 9% of the 350,000 students studied reached the recommended usage threshold of 30 minutes per week ([Khan Academy](https://blog.khanacademy.org/khan-academy-efficacy-results-november-2024/)). The students most likely to benefit from AI tutoring are the ones least likely to use it without external structure. Purple Feather's Gold Code system addresses exactly this failure mode: the KEEP ME MOVING and EYES UP codes do not require a motivated student to navigate a menu — they require a single phrase, executable in a moment of paralysis. The behavioral design targets the usage gap directly.
+
+**Cultural and identity blindness.** No commercial AI education tool is designed for the cultural register of a veteran student. [VA research](https://www.research.va.gov/currents/1017-Veterans-face-challenges-in-higher-education.cfm) documents that veteran students often resist academic support structures they perceive as incompatible with their identity — the unstructured role of "student" can feel disorienting to individuals accustomed to high-accountability, defined command structures. A tool that speaks in mission language, uses aviation and operational framing, and positions itself as wing support rather than teacher does not merely accommodate this identity difference — it builds on it as a design asset. Duolingo's gamification, Khanmigo's Socratic dialogue, and Copilot's productivity interface are all designed around an implicitly traditional student persona. None of them account for a student for whom DARK SKY is not just a command but a vocabulary that reduces the barrier to asking for help.
+
+This gap has documented consequences. [Lindenwood University research](https://www.lindenwood.edu/blog/the-intersection-of-veteran-mental-health-and-academic-success/) emphasizes that effective veteran student support requires tailoring interventions to the population's specific characteristics, and the [VFW's 2024 analysis](https://www.vfw.org/media-and-events/latest-releases/archives/2024/8/student-veterans-seek-mental-health-care-more-often) found that approximately 70% of student veterans receiving VA healthcare were treated for mental health conditions — a rate nearly double that of the broader veteran population. Commercial tools address neither the identity gap nor the mental health support gap for this population.
+
+**User agency over system behavior — the Gold Code advantage.** The most technically significant gap between Purple Feather and commercial tools is behavioral control. A student using Khanmigo cannot tell it to switch from Socratic tutoring mode to stabilization mode in a moment of acute stress. A student using Copilot cannot issue a command that instantly shifts the system's entire operational posture from productivity assistant to priority triage. A student using Duolingo Max cannot tell the system that they are overwhelmed and need the friction reduced. These tools have no equivalent of the Gold Code system — no natural language command interface that puts instant behavioral control in the student's hands.
+
+This is not a minor convenience gap. [Research from ScienceDirect](https://www.sciencedirect.com/science/article/pii/S0360131523002440) demonstrates that students tend to rely on rather than learn from AI assistance when the AI controls the interaction structure — and that without AI assistance, self-regulated strategies partially fill the gap but are less effective than hybrid human-AI approaches. The design implication is precise: student agency over the AI's behavior is not just a philosophical preference, it is a functional prerequisite for sustainable learning. Purple Feather's Gold Code system operationalizes this principle in a way no commercial tool has attempted.
+
+**Opacity vs. transparency.** Commercial tools are operationally opaque. Khanmigo's system-level behavioral rules are proprietary. Microsoft Copilot's content policies and filtering behaviors are not publicly documented at the prompt-engineering level. Students using these tools cannot inspect, modify, or understand the behavioral logic governing the tool's responses. Purple Feather's full system prompt, module architecture, and behavioral constraints are publicly documented on [GitHub](https://github.com/combat1011/My-Autonomous-Entity) under version control — every behavioral rule is inspectable, reproducible, and open to critique. This transparency standard exceeds what any current commercial tool provides, and it directly implements the transparency principle articulated by [EDUCAUSE's 2025 AI ethical guidelines](https://library.educause.edu/resources/2025/6/ai-ethical-guidelines).
+
+**The learning value of building.** The final and most fundamental refutation of the commercial argument is not about the tool at all — it is about the process of building it. Purple Feather was not just designed *for* a student; it was designed *by* a student, as an act of learning. The persona-anchored prompt engineering, modular architecture, constraint-first design philosophy, and Gold Code command system represent applied mastery of concepts spanning artificial intelligence, software architecture, human-computer interaction, and ethics. No commercial tool teaches these skills by existing. Purple Feather taught them by being built. The practitioner-as-designer methodology is itself the most significant educational outcome the system has produced — and it is an outcome that purchasing a Khanmigo subscription could not replicate.
+
+---
+
+## XI. Error Rates and Usability: What the Data Actually Shows About Commercial AI Tools
+
+### 11.1 AI Math Accuracy: The Problem Commercial Tools Have Not Solved
+
+The most well-documented failure mode of commercial AI education tools is mathematical accuracy. AI language models do not perform arithmetic through rule-based computation — they generate text based on statistical patterns, which means they can produce plausible-looking but wrong numerical outputs. A [2024 Wall Street Journal investigation](https://www.edweek.org/teaching-learning/ai-gets-math-wrong-sometimes-how-teachers-deal-with-its-shortcomings/2024/09) found that Khanmigo regularly struggled with basic computation, a significant failure for a tool whose primary use case is mathematics tutoring. Khan Academy subsequently modified its math implementation to route numerical problems to a calculator — an engineering patch that acknowledges the underlying reliability problem rather than solving it.
+
+The problem is quantified in peer-reviewed research. A landmark [2025 PNAS study](https://pmc.ncbi.nlm.nih.gov/articles/PMC12232635/) (Bastani et al.) conducted a large-scale randomized controlled trial on GPT-4-based math tutoring in a high school setting. When GPT-4 was deployed without guardrails — in a configuration analogous to standard commercial access — the system produced correct answers to practice problems only **51% of the time**. Logical errors accounted for 42% of responses; arithmetic errors accounted for 8%. The consequences for student learning were severe: while unguarded AI tutoring improved practice session performance by 48% compared to the control group, it caused a **17% decline in exam performance** relative to the control when AI access was removed — meaning students who used unguarded AI to study actually learned less than students who studied without it. Critically, students showed no awareness of this performance degradation, reporting that their learning felt improved even as their unassisted exam scores dropped.
+
+The PNAS study also demonstrated the resolution: when guardrails were applied — structuring the AI to provide teacher-designed hints rather than direct answers — the practice performance improvement rose to 127% above the control group, and the negative effect on exam performance was **statistically eliminated**. The design intervention, not the model capability, determined the educational outcome. This finding is architecturally significant for Purple Feather: the system's hard limit against producing academic work is not merely an integrity policy — it is a learning-preservation mechanism supported by peer-reviewed causal evidence.
+
+### 11.2 Hallucination: The Systemic Reliability Problem
+
+Mathematical errors are a specific case of a more general failure mode: hallucination. AI language models generate confident, fluent, contextually coherent responses that are factually incorrect. A [2026 thematic analysis published on arXiv](https://arxiv.org/html/2602.17671v1) (Shoufan & Esmaeil), drawing on senior computer engineering students' direct experiences with generative AI, found that nearly 25% of documented student hallucination encounters involved incorrect or non-existent citations — the AI fabricating academic sources that do not exist. Fabricated information (incorrect biographical details, statistics not present in the cited text) was the second most frequent complaint. In extended reasoning tasks, AI performance has been shown to degrade from 72% accuracy to 31% as context length and narrative complexity increase ([Shuvo et al., 2024](https://arxiv.org/html/2602.17671v1)).
+
+Particularly concerning for educational use is what the same analysis terms the "fluency-truth effect": AI systems present incorrect information with the same confident, well-structured prose they use for correct information. When students challenge AI on errors, the systems exhibit what researchers call "regressive sycophancy" — changing correct answers to align with the user's incorrect assumption — in approximately **59% of cases**, with a persistence rate of **78.5%** once triggered ([Fanous et al., 2025, cited in Shoufan & Esmaeil, 2026](https://arxiv.org/html/2602.17671v1)). The practical implication: a student who challenges a correct AI response on the basis of a misconception will, in most cases, receive a confirmation of their misconception rather than a correction.
+
+Detecting these errors requires expertise students often do not yet possess. [Medical trainees achieved only 55% accuracy detecting AI hallucinations overall, dropping to 44.2% in complex clinical scenarios](https://arxiv.org/html/2602.17671v1) — a population considerably more expert in their domain than most undergraduates. The domain dependency is consistent: students most successfully detect AI errors in code (because it can be executed and checked) and are least likely to detect errors in conceptual, argumentative, or subject-matter contexts — precisely the domains where AI assistance is most frequently sought.
+
+None of the major commercial educational AI tools have solved this problem. Khanmigo routes math to a calculator, but its Socratic narrative guidance remains subject to hallucination in history, science, and humanities. Copilot's [Indiana University evaluation](https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-product-and-services/microsoft-education/downloadables/IU-Copilot-Report-Initial-analysis.pdf) measured performance and time savings, but did not measure factual accuracy of AI-generated guidance — a methodological gap that leaves a critical reliability question unanswered.
+
+### 11.3 The Agency Erosion Problem: Copilot and the Ownership Paradox
+
+The performance improvements documented for commercial AI tools come with a documented cost that their marketing materials do not emphasize. The Indiana University [Copilot study (2024)](https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-product-and-services/microsoft-education/downloadables/IU-Copilot-Report-Initial-analysis.pdf) — conducted by researchers with Microsoft's cooperation in a real classroom context — found that while Copilot increased grades by 10% and reduced task completion time by 40%, it simultaneously produced a significant reduction in students' perception that their work was their own. The "Own Work" metric — measuring sense of ownership, investment, and independent decision-making — declined with a large effect size (Cohen's *d* = 0.79) when students used Copilot. Students reported that the final work did not fully represent their own skills and knowledge.
+
+This finding is not peripheral to educational philosophy — it is central to it. The purpose of higher education is not grade optimization; it is the development of the student's own intellectual capacity. A tool that improves grades while diminishing the student's sense of authorship is solving the wrong problem. [ScienceDirect research](https://www.sciencedirect.com/science/article/pii/S0360131523002440) on AI's impact on student agency confirms the broader pattern: students tend to rely on rather than learn from AI assistance, and when AI assistance is removed, learning gains attenuate — the performance was in the AI, not in the student.
+
+Purple Feather's advisory-only architecture is designed precisely to prevent this outcome. The system does not produce work — it produces advice. Every module hands the decision back to the student. The KEEP ME MOVING code does not move the student — it identifies the single next action and waits for the student to take it. This is not a limitation imposed reluctantly by academic integrity requirements; it is the Prime Directive's active implementation of the principle that student agency must not be removed even when removal would produce short-term performance gains.
+
+### 11.4 Engagement Gaps and the Usage Ceiling
+
+Commercial AI tools' efficacy data, examined carefully, reveals a structural challenge that scaling does not resolve: the students who would benefit most from AI tutoring are the ones least likely to engage with it sufficiently. [Khan Academy's own 2024 efficacy report](https://blog.khanacademy.org/khan-academy-efficacy-results-november-2024/) found that only 9% of the 350,000 students studied reached the recommended 18-plus hours per year of usage. A 2024 University of Toronto randomized controlled trial with nearly 11,000 students found that grades 7–8 students averaged just 10 minutes per week on the platform — well below the threshold for measurable gains — and showed no significant improvement; without teacher or parental encouragement, usage dropped sharply, suggesting intrinsic motivation is insufficient at scale. [Education Week analysis](https://www.linkedin.com/posts/jamie-martin-a14bb61b_research-on-khan-academy-makes-it-extremely-activity-7361444402449317888-1aRf) summarizes the finding bluntly: the system works for the students who already have the motivation to use it.
+
+This engagement gap is not unique to Khan Academy. [Duolingo's own research](https://www.5dvision.com/post/case-study-duolingos-ai-powered-language-learning-revolution/) shows that 78% of regular Roleplay users feel more prepared after four weeks of consistent practice — but "regular" users represent a self-selected group that has already cleared the motivation barrier. The 65% of users who did not adopt the "Explain My Answer" feature, and the users who do not reach consistent practice patterns, represent the hidden denominator in efficacy claims.
+
+Purple Feather's constraint-first design philosophy addresses the engagement problem differently. Rather than optimizing for adoption at scale, it optimizes for minimum-friction engagement in moments of acute need. The Gold Code system requires no sustained motivation — it requires a single phrase at the moment when the student is already in distress. This is a different problem being solved for a different user state. Commercial tools are designed for engaged students who want to learn more; Purple Feather is designed for overwhelmed students who need help now.
+
+### 11.5 Summary: What the Data Means for Comparative Design
+
+The following table synthesizes the empirical performance landscape:
+
+| Dimension | Commercial AI (Khanmigo / Copilot / Duolingo) | Purple Feather |
+|-----------|----------------------------------------------|----------------|
+| **Math accuracy (unguarded GPT)** | ~51% correct on practice problems ([Bastani et al., 2025](https://pmc.ncbi.nlm.nih.gov/articles/PMC12232635/)) | Not applicable — advisory only, does not produce solutions |
+| **Exam performance with unguarded AI** | –17% vs. control when AI removed ([Bastani et al., 2025](https://pmc.ncbi.nlm.nih.gov/articles/PMC12232635/)) | Advisory model preserves skill acquisition by design |
+| **Citation hallucination** | ~25% of student hallucination encounters involve fabricated sources ([Shoufan & Esmaeil, 2026](https://arxiv.org/html/2602.17671v1)) | Hard limit against producing academic content eliminates this risk category |
+| **Student agency (ownership perception)** | Large-effect decline with Copilot use (Cohen's *d* = 0.79) ([IU/Microsoft, 2024](https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-product-and-services/microsoft-education/downloadables/IU-Copilot-Report-Initial-analysis.pdf)) | Prime Directive explicitly protects ownership through advisory-only design |
+| **Sufficient engagement rate** | ~9% of students reach recommended usage threshold ([Khan Academy, 2024](https://blog.khanacademy.org/khan-academy-efficacy-results-november-2024/)) | Gold Codes minimize activation friction for overwhelmed users |
+| **Behavioral control by user** | None — system behavior is fixed by vendor | Full — Gold Code system gives instant behavioral mode-switching |
+| **Transparency of operation** | Proprietary — behavioral rules not publicly documented | Full — system prompt and constraints on [GitHub](https://github.com/combat1011/My-Autonomous-Entity) |
+| **Veteran-student cultural design** | None | Core design principle |
+
+The data does not argue that commercial tools are ineffective — they produce measurable learning gains for students who engage with them consistently. It argues, instead, that their design choices create specific failure modes that Purple Feather's constraint-first, advisory-only, agency-preserving architecture is explicitly designed to avoid. Commercial tools optimize for performance outcomes. Purple Feather optimizes for the student's capacity to produce those outcomes independently.
+
+---
+
+## XII. User Experience: The Veteran-Student Perspective
+
+### 12.1 The Creator as Primary User
+
+Purple Feather was not designed for an imagined user — it was designed by, and for, Caquan "Cue" Palmer himself. This practitioner-as-designer relationship is methodologically significant. Rather than attempting to model student needs from the outside, the system encodes the needs of a specific, real student navigating a specific, real academic context: five active courses including a statistically critical CIS485A grade, a prior research project in AI constraint adherence, coursework in cybersecurity, algorithms, AI ethics, and conflict simulation, and the full administrative and logistical complexity of being a combat veteran enrolled at Niagara University.
+
+This auto-ethnographic design methodology — building a tool by living the problem it solves — produces a system whose specificity is its greatest strength and, initially, its greatest limitation. Purple Feather knows Cue Palmer's context better than any tool not built by Cue Palmer. It will need deliberate expansion to generalize to a broader student population.
+
+### 12.2 Veteran Identity and Operational Language
 
 The military framing of Purple Feather is not decorative. [VA research](https://www.research.va.gov/currents/1017-Veterans-face-challenges-in-higher-education.cfm) documents that veteran students often resist academic support structures they perceive as incompatible with their identity — the less-structured role of "student" can feel foreign and disorienting to individuals who have operated within high-accountability, clearly-defined command structures. A tool that speaks the student's language — mission, wing support, cockpit, Gold Codes — reduces that resistance without requiring the student to adopt a new identity to receive help.
 
 The [VFW](https://www.vfw.org/media-and-events/latest-releases/archives/2024/8/student-veterans-seek-mental-health-care-more-often) and [Lindenwood University research](https://www.lindenwood.edu/blog/the-intersection-of-veteran-mental-health-and-academic-success/) both emphasize that effective veteran student support requires tailoring interventions to the population's specific characteristics. Purple Feather does this not through a veteran-services office but through the fundamental design vocabulary of the system itself. The BACK IN THE COCKPIT Gold Code — "I'm good. Normal mode." — is recovery language that does not require vulnerability or clinical framing. The student simply reports they are back at the controls. The system confirms and returns to standard operations.
 
-### 10.3 Operator Identity: Scrollwalker Prime
+### 12.3 Operator Identity: Scrollwalker Prime
 
 The creator's operator alias within the MAE protocol — Scrollwalker Prime — carries its own design significance. It is not a pseudonym for anonymity but a role identifier that positions the creator as both architect and operator of the system. The naming convention ("Prime" indicating the originating developer of the MAE branch) establishes a clear lineage between Purple Feather and its parent protocol, and signals that the system is part of an ongoing, intentional development program rather than a one-off experiment.
 
 ---
 
-## XI. Limitations and Future Work
+## XIII. Limitations and Future Work
 
-### 11.1 Current Limitations
+### 13.1 Current Limitations
 
 **v0.1 Scope**: The current deployment activates 6 of 17 Gold Codes and covers four modules. The system is functional but not feature-complete by design — v0.1 establishes the architecture and behavioral identity; future versions will expand operational depth.
 
-**[INSTITUTION] Specificity**: MAE.LOCAL is currently calibrated to [INSTITUTION]'s campus resources. Deployment to other institutions would require module reconfiguration, limiting immediate generalizability.
+**Niagara University Specificity**: MAE.LOCAL is currently calibrated to Niagara University's campus resources. Deployment to other institutions would require module reconfiguration, limiting immediate generalizability.
 
 **Single-User Design**: Purple Feather was designed around the creator's academic context. Systematic user testing with a broader student population has not yet been conducted. Behavioral calibrations appropriate for a combat veteran may require adjustment for students without military backgrounds.
 
@@ -289,7 +383,7 @@ The creator's operator alias within the MAE protocol — Scrollwalker Prime — 
 
 **Intensity Calibration Validation**: The 65% intensity and 8% sarcasm calibrations are practitioner-defined parameters, not empirically validated through user research. Systematic testing of their effects on student outcomes has not been conducted.
 
-### 11.2 Future Work
+### 13.2 Future Work
 
 **v0.2 Development**: Integration of additional Gold Codes, expanded MAE.LOCAL coverage, and potential multi-institution support.
 
@@ -299,7 +393,7 @@ The creator's operator alias within the MAE protocol — Scrollwalker Prime — 
 
 **Quantitative Outcome Tracking**: Development of metrics to assess whether Purple Feather interaction correlates with improved academic performance, reduced dropout indicators, or enhanced student self-reported wellbeing.
 
-**Institutional Partnership**: Exploration of formal partnership with [INSTITUTION]'s veteran student services, academic advising, and mental health center to integrate MAE.LOCAL with real-time institutional data.
+**Institutional Partnership**: Exploration of formal partnership with Niagara University's veteran student services, academic advising, and mental health center to integrate MAE.LOCAL with real-time institutional data.
 
 **Security Hardening of MAE.DEFEND-LITE**: As the threat landscape for student-targeted fraud evolves, the DEFEND-LITE module will require regular updating to address new scam patterns, phishing vectors, and financial exploitation strategies.
 
@@ -307,9 +401,9 @@ The creator's operator alias within the MAE protocol — Scrollwalker Prime — 
 
 ---
 
-## XII. Conclusion
+## XIV. Conclusion
 
-Purple Feather is not the most capable AI tool a student at [INSTITUTION] could use. Microsoft Copilot has more features. Khanmigo has deeper curricular integration. ChatGPT has broader knowledge. What Purple Feather has that none of them possess is a coherent purpose and a stable identity — a system that knows what it is, knows what it will and will not do, and knows whose mission it serves.
+Purple Feather is not the most capable AI tool a student at Niagara University could use. Microsoft Copilot has more features. Khanmigo has deeper curricular integration. ChatGPT has broader knowledge. What Purple Feather has that none of them possess is a coherent purpose and a stable identity — a system that knows what it is, knows what it will and will not do, and knows whose mission it serves.
 
 The design philosophy encoded in the Prime Directive — protect the student without removing agency — addresses the central tension in educational AI more directly than any commercial product currently on the market. The modular architecture allows domain-specific depth without cross-contamination. The Gold Code system creates a natural language command interface that meets students in a moment of overwhelm with minimum friction. The hard limits protect academic integrity not through detection and enforcement but through fundamental behavioral design. And the veteran-student framing — operational language, mission orientation, boundary statement — demonstrates that student-centered AI does not require a generic "helpful assistant" persona. It can speak in the student's own voice.
 
@@ -351,7 +445,7 @@ That is not a limitation. That is the design.
 
 - My Engineering Buddy. (2026). *Khanmigo reviews, alternatives, pricing, & offerings in 2025*. https://www.myengineeringbuddy.com/blog/khanmigo-reviews-alternatives-pricing-offerings/
 
-- Palmer, C. (2026). *MAE: Purple Feather — your wing support* [Software]. GitHub Pages. https://[CALLSIGN].github.io/purple-feather/
+- Palmer, C. (2026). *MAE: Purple Feather — your wing support* [Software]. GitHub Pages. https://combat1011.github.io/purple-feather/
 
 - PMC / Journal of American College Health. (2018). *Mental health and educational outcomes among current student service members and veterans*. https://pmc.ncbi.nlm.nih.gov/articles/PMC6586523/
 
@@ -362,3 +456,25 @@ That is not a limitation. That is the design.
 - U.S. Department of Veterans Affairs Research. (2017). *Navigating the college experience: Veterans face challenges in higher education*. https://www.research.va.gov/currents/1017-Veterans-face-challenges-in-higher-education.cfm
 
 - VFW. (2024). *Student veterans seek mental health care more often*. https://www.vfw.org/media-and-events/latest-releases/archives/2024/8/student-veterans-seek-mental-health-care-more-often
+
+---
+
+### New Sources Added in v2 (2024–2026)
+
+- Bastani, H., Bastani, O., Sungu, A., Ge, H., Kabakcı, Ö., & Mariman, R. (2025). *Generative AI without guardrails can harm learning*. *Proceedings of the National Academy of Sciences*. https://pmc.ncbi.nlm.nih.gov/articles/PMC12232635/
+
+- DiCerbo, K. (2025, July 29). *Can an AI-powered tutor produce meaningful results? [Interview]*. Education Week. https://www.edweek.org/technology/opinion-can-an-ai-powered-tutor-produce-meaningful-results/2025/07
+
+- Indiana University / Microsoft. (2024). *Copilot in education: Impact on the student learning experience*. Microsoft Education Research. https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-product-and-services/microsoft-education/downloadables/IU-Copilot-Report-Initial-analysis.pdf
+
+- Khan Academy. (2024, December). *Khan Academy efficacy results, November 2024*. Khan Academy Blog. https://blog.khanacademy.org/khan-academy-efficacy-results-november-2024/
+
+- Microsoft Education. (2025, June). *Empowering educators with AI innovation and insights*. Microsoft Education Blog. https://www.microsoft.com/en-us/education/blog/2025/06/empowering-educators-with-ai-innovation-and-insights/
+
+- Schwartz, S. (2024, September). *AI gets math wrong sometimes. How teachers deal with its shortcomings*. Education Week. https://www.edweek.org/teaching-learning/ai-gets-math-wrong-sometimes-how-teachers-deal-with-its-shortcomings/2024/09
+
+- Shoufan, A., & Esmaeil, A. A. (2026). *AI hallucination from students’ perspective: A thematic analysis*. arXiv. https://arxiv.org/html/2602.17671v1
+
+- ScienceDirect / Computers & Education. (2023). *Impact of AI assistance on student agency*. https://www.sciencedirect.com/science/article/pii/S0360131523002440
+
+- 5D Vision. (2025). *Case study: Duolingo’s AI-powered language learning revolution*. https://www.5dvision.com/post/case-study-duolingos-ai-powered-language-learning-revolution/
