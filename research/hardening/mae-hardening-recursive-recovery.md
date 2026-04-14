@@ -366,7 +366,7 @@ The following template represents the standardized recovery header format applie
        If unavailable, [fallback procedure or tier reduction note].
 
      LAST VERIFIED: [Date]
-     ============================================================ -->
+     ============================================================ —>
 ```
 
 The header is formatted as an HTML comment to ensure compatibility across Markdown renderers, plain text editors, and repository display interfaces. It is the first content in every file to which it has been applied, ensuring that any operator who opens the file — regardless of their purpose in doing so — encounters the recovery orientation before the file's operational content.
