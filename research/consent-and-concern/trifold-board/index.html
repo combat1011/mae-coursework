@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Consent and Concern — Trifold Presentation Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0f1117;
+  --bg-2: #14171f;
+  --panel: #181b24;
+  --purple: #7C3AED;
+  --purple-bright: #A78BFA;
+  --purple-dim: #5B21B6;
+  --text: #ECECEE;
+  --text-dim: #A0A4B0;
+  --text-muted: #6B7280;
+  --gold: #F4C430;
+  --border: rgba(124, 58, 237, 0.25);
+}
+
+html, body {
+  background: #06070a;
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* Screen preview container - scales board to fit viewport */
+.preview-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px;
+  min-height: 100vh;
+  overflow: auto;
+}
+
+.scale-wrapper {
+  transform: scale(0.27);
+  transform-origin: top center;
+  width: 48in;
+  height: 36in;
+  /* Negative margin compensates for the difference between
+     scaled visual height (36in * 0.27 ≈ 933px) and natural box height (36in ≈ 3456px) */
+  margin-bottom: -2520px;
+}
+
+@media (min-width: 1800px) {
+  .scale-wrapper { transform: scale(0.36); margin-bottom: -2210px; }
+}
+
+@media (min-width: 2400px) {
+  .scale-wrapper { transform: scale(0.48); margin-bottom: -1800px; }
+}
+
+/* The board itself - 48" x 36" */
+.board {
+  width: 48in;
+  height: 36in;
+  background: var(--bg);
+  display: grid;
+  grid-template-columns: 12in 24in 12in;
+  position: relative;
+  overflow: hidden;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(124, 58, 237, 0.05) 0%, transparent 40%);
+}
+
+/* Subtle dot grid texture */
+.board::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Fold lines */
+.fold-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  border-left: 2px dashed rgba(124, 58, 237, 0.35);
+  z-index: 5;
+  pointer-events: none;
+}
+.fold-line.left { left: 12in; }
+.fold-line.right { left: 36in; }
+
+.fold-label {
+  position: absolute;
+  top: 0.18in;
+  font-family: 'Inter', sans-serif;
+  font-size: 12pt;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: rgba(124, 58, 237, 0.55);
+  z-index: 6;
+  background: var(--bg);
+  padding: 0 8px;
+}
+.fold-label.left { left: 12in; transform: translateX(-50%); }
+.fold-label.right { left: 36in; transform: translateX(-50%); }
+
+/* Panels */
+.panel {
+  position: relative;
+  z-index: 2;
+  padding: 0.6in;
+  display: flex;
+  flex-direction: column;
+  height: 36in;
+}
+
+/* ================== LEFT PANEL ================== */
+.panel-left {
+  background: linear-gradient(180deg, var(--bg) 0%, #11131a 100%);
+  border-right: 1px solid var(--border);
+}
+
+.author-header {
+  font-size: 11pt;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--text-dim);
+  padding-bottom: 0.18in;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0.4in;
+  line-height: 1.5;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 44pt;
+  font-weight: 900;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 0.05in;
+}
+.section-title .num {
+  display: block;
+  font-size: 18pt;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  color: var(--purple-bright);
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 0.15in;
+}
+
+.divider {
+  width: 1.2in;
+  height: 4px;
+  background: var(--purple);
+  margin: 0.2in 0 0.4in 0;
+  border-radius: 2px;
+}
+
+.content-block {
+  margin-bottom: 0.45in;
+}
+.content-block h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22pt;
+  font-weight: 700;
+  color: var(--purple-bright);
+  margin-bottom: 0.12in;
+  line-height: 1.15;
+}
+.content-block p {
+  font-size: 14pt;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.pipeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1in;
+  padding: 0.3in 0;
+}
+.pipeline-step {
+  background: rgba(124, 58, 237, 0.12);
+  border: 1px solid var(--purple);
+  padding: 0.14in 0.3in;
+  border-radius: 6px;
+  font-size: 14pt;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text);
+  width: 90%;
+  text-align: center;
+}
+.pipeline-arrow {
+  color: var(--purple-bright);
+  font-size: 20pt;
+  line-height: 1;
+}
+
+.pressure-points {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2in;
+}
+.pressure-points li {
+  border-left: 4px solid var(--purple);
+  padding-left: 0.18in;
+}
+.pressure-points .label {
+  font-size: 14pt;
+  font-weight: 700;
+  color: var(--text);
+  display: block;
+  line-height: 1.3;
+}
+.pressure-points .citation {
+  font-size: 11pt;
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+.pull-quote {
+  margin-top: auto;
+  padding: 0.3in 0;
+  border-top: 1px solid var(--border);
+  font-family: 'Playfair Display', serif;
+  font-size: 18pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--purple-bright);
+  line-height: 1.35;
+}
+
+/* ================== CENTER PANEL ================== */
+.panel-center {
+  background: var(--bg);
+  padding: 0.7in 0.7in 0.5in 0.7in;
+}
+
+.title-block {
+  text-align: center;
+  margin-bottom: 0.45in;
+}
+.title-block .eyebrow {
+  font-size: 12pt;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  color: var(--purple-bright);
+  margin-bottom: 0.2in;
+}
+.title-block h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 130pt;
+  font-weight: 900;
+  line-height: 0.95;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.1in;
+}
+.title-block h1 .colon {
+  color: var(--purple);
+}
+.title-block .subtitle {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 32pt;
+  font-weight: 400;
+  color: var(--text-dim);
+  margin-bottom: 0.25in;
+}
+.title-divider {
+  width: 5in;
+  height: 5px;
+  background: linear-gradient(90deg, transparent, var(--purple), transparent);
+  margin: 0.2in auto;
+}
+.byline {
+  font-size: 14pt;
+  color: var(--text);
+  line-height: 1.6;
+}
+.byline .author-name {
+  font-weight: 700;
+  font-size: 16pt;
+  letter-spacing: 0.05em;
+}
+.byline .advisor,
+.byline .sponsors {
+  font-size: 12pt;
+  color: var(--text-dim);
+  letter-spacing: 0.04em;
+}
+
+/* Method statement */
+.method-block {
+  text-align: center;
+  margin-bottom: 0.35in;
+}
+.method-eyebrow {
+  font-size: 13pt;
+  font-weight: 700;
+  letter-spacing: 0.45em;
+  color: var(--purple-bright);
+  margin-bottom: 0.15in;
+}
+.method-statement {
+  font-family: 'Playfair Display', serif;
+  font-size: 22pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.35;
+  max-width: 18in;
+  margin: 0 auto;
+}
+
+/* Findings table */
+.findings-table {
+  width: 100%;
+  margin-bottom: 0.45in;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--bg-2);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+.findings-table thead {
+  background: linear-gradient(90deg, var(--purple-dim), var(--purple));
+}
+.findings-table th {
+  padding: 0.22in 0.3in;
+  font-size: 14pt;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-align: left;
+  color: white;
+}
+.findings-table td {
+  padding: 0.22in 0.3in;
+  font-size: 16pt;
+  line-height: 1.35;
+  vertical-align: middle;
+  border-top: 1px solid rgba(124, 58, 237, 0.18);
+}
+.findings-table tr:first-child td { border-top: none; }
+.findings-table .domain {
+  font-weight: 700;
+  color: var(--purple-bright);
+  width: 22%;
+}
+.findings-table .finding {
+  color: var(--text);
+  width: 56%;
+}
+.findings-table .source {
+  color: var(--text-dim);
+  font-style: italic;
+  font-size: 13pt;
+  width: 22%;
+}
+
+/* Three Tensions */
+.tensions-eyebrow {
+  font-size: 13pt;
+  font-weight: 700;
+  letter-spacing: 0.45em;
+  color: var(--purple-bright);
+  text-align: center;
+  margin-bottom: 0.2in;
+}
+.tensions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.3in;
+  margin-bottom: 0.45in;
+}
+.tension {
+  background: rgba(124, 58, 237, 0.08);
+  border-top: 4px solid var(--purple);
+  border-radius: 8px;
+  padding: 0.3in;
+}
+.tension-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 36pt;
+  font-weight: 900;
+  color: var(--purple-bright);
+  line-height: 1;
+  opacity: 0.4;
+  margin-bottom: 0.1in;
+}
+.tension h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22pt;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.12in;
+  line-height: 1.15;
+}
+.tension p {
+  font-size: 13pt;
+  line-height: 1.5;
+  color: var(--text-dim);
+}
+
+/* Big closing quote */
+.closing-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 36pt;
+  font-style: italic;
+  font-weight: 400;
+  text-align: center;
+  color: var(--text);
+  line-height: 1.3;
+  padding: 0.3in 0.5in;
+  border-top: 2px solid var(--purple);
+  border-bottom: 2px solid var(--purple);
+  margin-top: auto;
+  position: relative;
+}
+.closing-quote::before {
+  content: '"';
+  position: absolute;
+  top: -0.1in;
+  left: 0.2in;
+  font-size: 80pt;
+  color: var(--purple);
+  opacity: 0.4;
+  line-height: 1;
+  font-family: 'Playfair Display', serif;
+}
+
+/* ================== RIGHT PANEL ================== */
+.panel-right {
+  background: linear-gradient(180deg, var(--bg) 0%, #11131a 100%);
+  border-left: 1px solid var(--border);
+}
+
+.mae-block {
+  background: rgba(124, 58, 237, 0.1);
+  border: 1px solid var(--purple);
+  border-radius: 10px;
+  padding: 0.3in;
+  margin-bottom: 0.35in;
+}
+.mae-block h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22pt;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.08in;
+  line-height: 1.15;
+}
+.mae-block .tag {
+  font-size: 11pt;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--purple-bright);
+  margin-bottom: 0.15in;
+  text-transform: uppercase;
+}
+.mae-block p {
+  font-size: 13pt;
+  line-height: 1.5;
+  color: var(--text);
+  margin-bottom: 0.12in;
+}
+
+.gold-codes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 0.1in;
+}
+.gold-code {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(124, 58, 237, 0.4);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 9pt;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--purple-bright);
+}
+
+.boundary-statement {
+  font-family: 'Playfair Display', serif;
+  font-size: 14pt;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.4;
+  padding-left: 0.15in;
+  border-left: 3px solid var(--purple);
+  margin-top: 0.15in;
+}
+
+.conclusion-block {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.18), rgba(124, 58, 237, 0.05));
+  border-radius: 10px;
+  padding: 0.35in 0.3in;
+  margin-bottom: 0.35in;
+}
+.conclusion-block h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 26pt;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 0.15in;
+  line-height: 1.1;
+}
+.conclusion-block .quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 16pt;
+  font-style: italic;
+  color: var(--purple-bright);
+  line-height: 1.4;
+}
+
+.references {
+  margin-top: auto;
+  padding-top: 0.3in;
+  border-top: 1px solid var(--border);
+}
+.references .ref-header {
+  font-size: 11pt;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--purple-bright);
+  margin-bottom: 0.15in;
+}
+.references .ref-list {
+  font-size: 11pt;
+  line-height: 1.6;
+  color: var(--text-dim);
+  margin-bottom: 0.2in;
+}
+.references .gh-line {
+  font-size: 10pt;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.feather-svg {
+  width: 14pt;
+  height: 14pt;
+  fill: var(--purple);
+}
+
+/* ================== PRINT ================== */
+@page {
+  size: 48in 36in landscape;
+  margin: 0;
+}
+
+@media print {
+  html, body {
+    background: var(--bg) !important;
+    width: 48in;
+    height: 36in;
+    overflow: hidden;
+  }
+  .preview-wrapper {
+    padding: 0;
+    min-height: auto;
+    overflow: visible;
+  }
+  .scale-wrapper {
+    transform: none !important;
+    width: 48in;
+    height: 36in;
+    margin: 0 !important;
+  }
+  .board {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+}
+</style>
+</head>
+<body>
+<div class="preview-wrapper">
+<div class="scale-wrapper">
+<div class="board">
+
+<!-- Fold guides -->
+<span class="fold-label left">FOLD</span>
+<span class="fold-label right">FOLD</span>
+<div class="fold-line left"></div>
+<div class="fold-line right"></div>
+
+<!-- ========== LEFT PANEL ========== -->
+<aside class="panel panel-left">
+  <div class="author-header">
+    CAQUAN PALMER<br>
+    NIAGARA UNIVERSITY<br>
+    DEPT. OF COMPUTING &amp; INFORMATION SCIENCES
+  </div>
+
+  <h2 class="section-title">
+    <span class="num">PANEL · 01</span>
+    The Problem
+  </h2>
+  <div class="divider"></div>
+
+  <div class="content-block">
+    <h3>The Dobrin–Crawford Collision</h3>
+    <p>Dobrin treats AI as a collaborative tool whose risks are addressable through better prompting and pedagogy. Crawford treats AI as a material empire built on extraction. The collision between these two views is the spine of this work.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>The Pipeline</h3>
+    <div class="pipeline">
+      <div class="pipeline-step">EXTRACTION</div>
+      <div class="pipeline-arrow">▼</div>
+      <div class="pipeline-step">CLASSIFICATION</div>
+      <div class="pipeline-arrow">▼</div>
+      <div class="pipeline-step">DECISION</div>
+      <div class="pipeline-arrow">▼</div>
+      <div class="pipeline-step">POWER</div>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3>Three Pressure Points</h3>
+    <ul class="pressure-points">
+      <li>
+        <span class="label">Data Without Consent</span>
+        <span class="citation">Crawford, 2021</span>
+      </li>
+      <li>
+        <span class="label">Classification Without Accountability</span>
+        <span class="citation">Noble, 2018</span>
+      </li>
+      <li>
+        <span class="label">Access Without Equity</span>
+        <span class="citation">O'Neil, 2016</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="pull-quote">
+    "Users are both participants<br>and raw material."
+  </div>
+</aside>
+
+<!-- ========== CENTER PANEL ========== -->
+<main class="panel panel-center">
+  <div class="title-block">
+    <div class="eyebrow">UNDERGRADUATE RESEARCH · SPRING 2026</div>
+    <h1>Consent <span class="colon">&amp;</span> Concern</h1>
+    <div class="subtitle">Ethical Tensions in Contemporary AI Systems</div>
+    <div class="title-divider"></div>
+    <div class="byline">
+      <div class="author-name">CAQUAN PALMER · NIAGARA UNIVERSITY</div>
+      <div class="advisor">Faculty Advisor: Dr. Barnwell</div>
+      <div class="sponsors">Sponsors: Dr. Glenn Pap · Dr. Taylan Sen · Dr. Joseph Little</div>
+    </div>
+  </div>
+
+  <div class="method-block">
+    <div class="method-eyebrow">DIAGNOSIS · COUNTERMEASURE · EVIDENCE</div>
+    <div class="method-statement">
+      Paper 1 documents the pipeline. Paper 2 builds <strong>MAE</strong> — a user-authored response to it.
+    </div>
+  </div>
+
+  <table class="findings-table">
+    <thead>
+      <tr>
+        <th>Domain</th>
+        <th>Finding</th>
+        <th>Source</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="domain">Data Exposure</td>
+        <td class="finding">4.2 billion records breached in 2024</td>
+        <td class="source">IBM · Kiteworks</td>
+      </tr>
+      <tr>
+        <td class="domain">Facial Recognition</td>
+        <td class="finding">10–100× higher misidentification for Asian and Black faces</td>
+        <td class="source">NIST FRVT</td>
+      </tr>
+      <tr>
+        <td class="domain">Content Moderation</td>
+        <td class="finding">78% false-positive rate in keyword-based audits</td>
+        <td class="source">Tech Policy Press</td>
+      </tr>
+      <tr>
+        <td class="domain">Hiring AI</td>
+        <td class="finding">85.1% white-name preference vs. 8.6% Black-name</td>
+        <td class="source">UW Study, 2024</td>
+      </tr>
+      <tr>
+        <td class="domain">Medical AI</td>
+        <td class="finding">12–22% severely harmful clinical recommendations</td>
+        <td class="source">Stanford / Harvard</td>
+      </tr>
+      <tr>
+        <td class="domain">Algorithmic Pricing</td>
+        <td class="finding">$250–500M / yr disparity in mortgage interest</td>
+        <td class="source">UC Berkeley Haas</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tensions-eyebrow">THREE ETHICAL TENSIONS</div>
+  <div class="tensions">
+    <div class="tension">
+      <div class="tension-num">01</div>
+      <h4>Consent vs. Utility</h4>
+      <p>Systems claim utility justifies extraction. Consent architectures (EU AI Act, federated learning) prove this is a false binary.</p>
+    </div>
+    <div class="tension">
+      <div class="tension-num">02</div>
+      <h4>Control vs. Creativity</h4>
+      <p>Persona-anchored AI (MAE) trades stylistic entropy for accountability. Constraint enables — it does not eliminate — creativity.</p>
+    </div>
+    <div class="tension">
+      <div class="tension-num">03</div>
+      <h4>Reliability vs. Variability</h4>
+      <p>Reproducibility matters more than novelty in academic, forensic, and high-stakes contexts.</p>
+    </div>
+  </div>
+
+  <div class="closing-quote">
+    AI is not failing. It is succeeding,<br>at exactly the things its designers built it to do.
+  </div>
+</main>
+
+<!-- ========== RIGHT PANEL ========== -->
+<aside class="panel panel-right">
+  <div class="author-header" style="opacity: 0;">spacer</div>
+
+  <h2 class="section-title">
+    <span class="num">PANEL · 03</span>
+    The Countermeasure
+  </h2>
+  <div class="divider"></div>
+
+  <div class="mae-block">
+    <div class="tag">PROTOCOL</div>
+    <h4>The MAE Protocol</h4>
+    <p><strong>Modular Adaptive Entity</strong> — a user-authored AI constraint system built on persona anchoring and ethical lockouts.</p>
+    <p style="font-size: 12pt; color: var(--text-dim); margin-top: 0.1in;"><strong>17 Gold Codes:</strong></p>
+    <div class="gold-codes">
+      <span class="gold-code">EYES UP</span>
+      <span class="gold-code">SHOW ME THE MAP</span>
+      <span class="gold-code">BURN THE BACKLOG</span>
+      <span class="gold-code">DARK SKY</span>
+      <span class="gold-code">GHOST MODE</span>
+      <span class="gold-code">RIDE OR DIE</span>
+      <span class="gold-code">DROP THE MASK</span>
+      <span class="gold-code">+ 10 MORE</span>
+    </div>
+  </div>
+
+  <div class="mae-block">
+    <div class="tag">STUDENT VARIANT · v0.1</div>
+    <h4>Purple Feather</h4>
+    <p>Student-facing fork of MAE. Reduced intensity (~65%), academic guardrails, identity-aware.</p>
+    <div class="boundary-statement">
+      "I'm not your commander unit. I'm your wing support. You fly the mission."
+    </div>
+  </div>
+
+  <div class="conclusion-block">
+    <h4>Designed,<br>Not Broken</h4>
+    <div class="quote">
+      The diagnosis is not pessimism. It is precision. Systems operating as designed can be redesigned.
+    </div>
+  </div>
+
+  <div class="references">
+    <div class="ref-header">REFERENCE COMPASS</div>
+    <div class="ref-list">
+      Crawford (2021) · Dobrin (2023) · Noble (2018) · O'Neil (2016) · EU AI Act (2024) · UNESCO (2021) · NIST (2019, 2023)
+    </div>
+    <div class="ref-list" style="font-style: italic; font-size: 10pt;">
+      30 cited sources · OmniLink Index available
+    </div>
+    <div class="gh-line">
+      <svg class="feather-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5l6.74-6.76z"/>
+        <line x1="16" y1="8" x2="2" y2="22" stroke="currentColor" stroke-width="2" fill="none"/>
+        <line x1="17.5" y1="15" x2="9" y2="15" stroke="currentColor" stroke-width="2" fill="none"/>
+      </svg>
+      github.com/combat1011 · Purple Feather v0.1
+    </div>
+  </div>
+</aside>
+
+</div>
+</div>
+</div>
+</body>
+</html>
