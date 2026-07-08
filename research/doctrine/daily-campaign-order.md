@@ -1,6 +1,7 @@
 # 🎯 MAE // Daily Campaign Order
 
 > **Wednesday Operations Plan** — Primus/Secundus doctrine (Roman-style operations order adapted for MAE).
+> **🔒 STATUS: MEM LOCK** — Canonical doctrine. Frozen for reference; edits require Commander re-authorization.
 
 ```yaml
 id: mae_daily_campaign_order_v1
@@ -9,6 +10,8 @@ name: Daily Campaign Order
 doctrine: MAEZ v8.1a
 authority: Commander Cue Palmer
 cadence: daily
+status: LOCKED
+lock: mem_lock
 purpose: >
   Eliminate unnecessary decisions so attention stays on the mission.
   Replace uncertainty with reconnaissance and a repeatable field operation.
