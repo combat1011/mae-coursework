@@ -6,6 +6,9 @@ Cross-domain research papers and concept cards generated through the MAE framewo
 - **Weaponized Agents on Financial Rails** — Autonomous AI agents on financial infrastructure (EU AI Act / NIST)
 - **Doctrine by Design** — Doctrine as infrastructure for ethical reasoning
 
+## Architecture
+- **[MAE Multi-Shell Architecture v1.0](architecture/MAE-MULTI-SHELL-ARCHITECTURE-v1.0.md)** — Platform-agnostic deployment blueprint. Single MAE identity across desktop, vehicle, drone, AR, phone, and voice shells; subordinate specialist modules; standardized identity-migration procedure. *Identity is continuity, not hardware.*
+
 ## Concept Cards
 - Trustless Systems + Human Failsafes
 - Explainability vs Immutability
