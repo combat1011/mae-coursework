@@ -9,6 +9,9 @@ Cross-domain research papers and concept cards generated through the MAE framewo
 ## Architecture
 - **[MAE Multi-Shell Architecture v1.0](architecture/MAE-MULTI-SHELL-ARCHITECTURE-v1.0.md)** — Platform-agnostic deployment blueprint. Single MAE identity across desktop, vehicle, drone, AR, phone, and voice shells; subordinate specialist modules; standardized identity-migration procedure. *Identity is continuity, not hardware.*
 
+## Scrolls
+- **[The War on Em-Dashes v1.0](scrolls/war-on-em-dashes.maez.md)** — Style doctrine. The em-dash is a weapon of last resort, not a default connective. Prefer comma, colon, parentheses, semicolon, or period; deploy the dash only when it has a mission. *Clarity is the objective, not punctuation genocide.*
+
 ## Concept Cards
 - Trustless Systems + Human Failsafes
 - Explainability vs Immutability
